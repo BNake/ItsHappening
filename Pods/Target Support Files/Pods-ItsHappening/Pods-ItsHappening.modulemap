@@ -1,0 +1,6 @@
+framework module Pods_ItsHappening {
+  umbrella header "Pods-ItsHappening-umbrella.h"
+
+  export *
+  module * { export * }
+}
