@@ -15,8 +15,8 @@ class Coordinate: BasePojoModel {
     // MARK: to init from firebase, since dictionary is what firebase returns
     required init?(dict: [String : Any]) {
                 
-        guard let latitude       = dict["latitude"] as? Double else { return nil }
-        guard let longitude       = dict["longitude"] as? Double else { return nil }
+        guard let latitude  = dict["latitude"] as? Double else { return nil }
+        guard let longitude = dict["longitude"] as? Double else { return nil }
 
         self.latitude = latitude
         self.longitude = longitude
