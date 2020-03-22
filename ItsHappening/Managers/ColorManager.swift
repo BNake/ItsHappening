@@ -18,30 +18,38 @@ class ColorManager {
     static var searchTextFieldColor: UIColor {
         return UIColor.init(hexrgb: 0x303030)
     }
-
-    static var cefcoYellow: UIColor {
-        return UIColor.init(hexrgb: 0xffcc00)
-    }
     
-    static var cefcoWhite: UIColor {
+    static var hWhite: UIColor {
         return UIColor.init(hexrgb: 0xffffff)
     }
+    
+    static var hBlue: UIColor {
+        return UIColor.init(hexrgb: 0x1469a1)
+    }
+    
+    static var hBlack: UIColor {
+        return UIColor.init(hexrgb: 0x000000)
+    }
 
-    static var cefcoRed: UIColor {
+    static var hGray: UIColor {
+        return UIColor.init(hexrgb: 0xebebeb)
+    }
+    
+    static var hRed: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor { (traits) -> UIColor in
-                return traits.userInterfaceStyle == .dark ? ColorManager.staticCefcoLightRed : ColorManager.staticCefcoRed
+                return traits.userInterfaceStyle == .dark ? ColorManager.staticHlightRed : ColorManager.staticHred
             }
         } else {
-            return ColorManager.staticCefcoRed
+            return ColorManager.staticHred
         }
     }
 
-    static var staticCefcoRed: UIColor {
+    static var staticHred: UIColor {
         return UIColor(hexrgb: 0xd32f2f)
     }
 
-    static var staticCefcoLightRed: UIColor {
+    static var staticHlightRed: UIColor {
         return UIColor(hexrgb: 0xd32f2f)
     }
 

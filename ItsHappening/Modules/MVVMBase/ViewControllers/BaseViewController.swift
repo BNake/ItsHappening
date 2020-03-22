@@ -51,7 +51,7 @@ class BaseViewController<T: ViewModelProtocol>: UIViewController, ViewController
     let closeBarButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .white
-        button.setImage(UIImage(named: "splash")!.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.setImage(UIImage(named: "x")!.withRenderingMode(.alwaysTemplate), for: .normal)
         return button
     }()
     

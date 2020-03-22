@@ -9,7 +9,7 @@
 import UIKit
 
 protocol LoginOptionsRouterProtocol: RouterProtocol {
-    func showLogin(with: ParameterProtocol)
+    func showLogin()
 }
 
 class LoginOptionsRouter: BaseRouter, LoginOptionsRouterProtocol {
@@ -18,7 +18,7 @@ class LoginOptionsRouter: BaseRouter, LoginOptionsRouterProtocol {
         navigationService.remove(viewModel: viewModel)
     }
     
-    func showLogin(with data: ParameterProtocol) {
-//        let _: LinearNavigationService? = navigationService.presentService(viewModel: LoginWebViewModel.self, with: data, flow: LoginFlow())
+    func showLogin() {
+        let _: LinearNavigationService? = navigationService.presentService(viewModel: LoginViewModel.self, with: nil, flow: nil)
     }
 }

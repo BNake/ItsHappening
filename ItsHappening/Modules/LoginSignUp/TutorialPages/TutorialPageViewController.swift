@@ -15,7 +15,7 @@ class TutorialPageViewController: BaseViewController<TutorialPageViewModel> {
     private let titleLabel: UILabel = {
         let view = UILabel()
         view.textAlignment = .center
-        view.textColor = ColorManager.cefcoWhite
+        view.textColor = ColorManager.hWhite
         view.numberOfLines = 2
         view.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         return view
@@ -24,7 +24,7 @@ class TutorialPageViewController: BaseViewController<TutorialPageViewModel> {
     private let textLabel: UILabel = {
         let view = UILabel()
         view.numberOfLines = 0
-        view.textColor = ColorManager.cefcoWhite
+        view.textColor = ColorManager.hWhite
         view.textAlignment = .center
         return view
     }()

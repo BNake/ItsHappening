@@ -52,25 +52,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-//let eventsTable = FirebaseDatabaseService<Event>(tableName: "Events")
-//        
+//        let eventsTable = FirebaseDatabaseService<HappeningEvent>(tableName: "Events")
+//
 //        eventsTable.observe()
 //            .subscribe(onNext: { (event, action) in
-//                
+//
 //                switch action {
 //                case .added:
-//                    self.events.append(event)
-//                    print(action, self.events.count)
+//                    break
+//                    // self.events.append(event)
+//                    // print(action, self.events.count)
 //                case .removed:
-//                    self.events.removeAll { $0.id == event.id }
-//                    print(action, self.events.count)
+//                    // self.events.removeAll { $0.id == event.id }
+//                    // print(action, self.events.count)
+//                    break
 //                case .changed:
 //                    break
 //                }
-//                
+//
 //            }).disposed(by: disposeBag)
-        
-        
+//
+//
 //        for i in 0...10 {
 //            let coordinate: Coordinate = Coordinate(latitude: 32.877, longitude: 92.432)
 //            let address = Address(streetAddress: "207 Kensingron Trace",
@@ -78,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                                  state: "GA",
 //                                  zipCode: "30115",
 //                                  coordinate: coordinate)
-//            let event = Event(ownerID: "453434", address: address)
+//            let event = HappeningEvent(ownerID: "453434", address: address)
 //            event.imageURL = "some url"
-//            eventsTable.insertOrUpdate(row: event, success: {}, failure: { _ in})
+//            eventsTable.insert(row: event, success: {}, failure: { _ in})
 //        }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Event: BasePojoModel {
+class HappeningEvent: BasePojoModel {
     
     public var ownerID: String
     public var address: Address

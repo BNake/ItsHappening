@@ -19,7 +19,7 @@
 		B3863AA5242484DE00FC9C86 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3863AA4242484DE00FC9C86 /* GoogleService-Info.plist */; };
 		B3863AA9242490BD00FC9C86 /* FirebaseDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3863AA8242490BD00FC9C86 /* FirebaseDatabaseService.swift */; };
 		B3863AAC2424913000FC9C86 /* NSObject+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3863AAB2424913000FC9C86 /* NSObject+Ext.swift */; };
-		B3863AAF24249F1000FC9C86 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3863AAE24249F1000FC9C86 /* Event.swift */; };
+		B3863AAF24249F1000FC9C86 /* HappeningEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3863AAE24249F1000FC9C86 /* HappeningEvent.swift */; };
 		B3863AB224249F3800FC9C86 /* BasePojoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3863AB124249F3800FC9C86 /* BasePojoModel.swift */; };
 		B3863AB42424A65A00FC9C86 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3863AB32424A65A00FC9C86 /* Address.swift */; };
 		B3863AB924255A0300FC9C86 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3863AB824255A0300FC9C86 /* Coordinate.swift */; };
@@ -55,6 +55,11 @@
 		B3863B122425E3F800FC9C86 /* TutorialPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3863B112425E3F800FC9C86 /* TutorialPageViewModel.swift */; };
 		B3863B142425E41000FC9C86 /* TutorialPageConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3863B132425E41000FC9C86 /* TutorialPageConfigurator.swift */; };
 		B3CC55D42426C0DA0089278C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC55D32426C0DA0089278C /* BaseViewController.swift */; };
+		B3CC55D82426D0E20089278C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC55D72426D0E20089278C /* LoginViewController.swift */; };
+		B3CC55DA2426D0F80089278C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC55D92426D0F80089278C /* LoginViewModel.swift */; };
+		B3CC55DC2426D10B0089278C /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC55DB2426D10B0089278C /* LoginConfigurator.swift */; };
+		B3CC55DE2426D11B0089278C /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC55DD2426D11B0089278C /* LoginRouter.swift */; };
+		B3CC55E024271D410089278C /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC55DF24271D410089278C /* RoundedTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +102,7 @@
 		B3863AA4242484DE00FC9C86 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B3863AA8242490BD00FC9C86 /* FirebaseDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabaseService.swift; sourceTree = "<group>"; };
 		B3863AAB2424913000FC9C86 /* NSObject+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Ext.swift"; sourceTree = "<group>"; };
-		B3863AAE24249F1000FC9C86 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		B3863AAE24249F1000FC9C86 /* HappeningEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappeningEvent.swift; sourceTree = "<group>"; };
 		B3863AB124249F3800FC9C86 /* BasePojoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePojoModel.swift; sourceTree = "<group>"; };
 		B3863AB32424A65A00FC9C86 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		B3863AB824255A0300FC9C86 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
@@ -133,6 +138,11 @@
 		B3863B112425E3F800FC9C86 /* TutorialPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageViewModel.swift; sourceTree = "<group>"; };
 		B3863B132425E41000FC9C86 /* TutorialPageConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageConfigurator.swift; sourceTree = "<group>"; };
 		B3CC55D32426C0DA0089278C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		B3CC55D72426D0E20089278C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B3CC55D92426D0F80089278C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		B3CC55DB2426D10B0089278C /* LoginConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
+		B3CC55DD2426D11B0089278C /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		B3CC55DF24271D410089278C /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		BD2E6088E8EAF55D9B6ABAF1 /* Pods-ItsHappeningTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsHappeningTests.release.xcconfig"; path = "Target Support Files/Pods-ItsHappeningTests/Pods-ItsHappeningTests.release.xcconfig"; sourceTree = "<group>"; };
 		EDA3FEAD72FD6D1AE8F929E7 /* Pods_ItsHappening.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItsHappening.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -284,7 +294,7 @@
 			children = (
 				B3863ADF2425853500FC9C86 /* Parameters */,
 				B3863AB024249F2100FC9C86 /* Base */,
-				B3863AAE24249F1000FC9C86 /* Event.swift */,
+				B3863AAE24249F1000FC9C86 /* HappeningEvent.swift */,
 				B3863AB32424A65A00FC9C86 /* Address.swift */,
 				B3863AB824255A0300FC9C86 /* Coordinate.swift */,
 			);
@@ -341,6 +351,7 @@
 			children = (
 				B3863AC1242575BE00FC9C86 /* HappeningNavigationController.swift */,
 				B3863B042425E20A00FC9C86 /* RoundedButton.swift */,
+				B3CC55DF24271D410089278C /* RoundedTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -396,11 +407,9 @@
 		B3863B032425E12E00FC9C86 /* LoginSignUp */ = {
 			isa = PBXGroup;
 			children = (
+				B3CC55D62426D0B50089278C /* LoginOptions */,
+				B3CC55D52426D0500089278C /* Login */,
 				B3863B0E2425E3A100FC9C86 /* TutorialPages */,
-				B3863B062425E29B00FC9C86 /* LoginOptionsViewController.swift */,
-				B3863B082425E2B100FC9C86 /* LoginOptionsViewModel.swift */,
-				B3863B0A2425E2D700FC9C86 /* LoginOptionsConfigurator.swift */,
-				B3863B0C2425E2F100FC9C86 /* LoginOptionsRouter.swift */,
 			);
 			path = LoginSignUp;
 			sourceTree = "<group>";
@@ -413,6 +422,28 @@
 				B3863B132425E41000FC9C86 /* TutorialPageConfigurator.swift */,
 			);
 			path = TutorialPages;
+			sourceTree = "<group>";
+		};
+		B3CC55D52426D0500089278C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC55D72426D0E20089278C /* LoginViewController.swift */,
+				B3CC55D92426D0F80089278C /* LoginViewModel.swift */,
+				B3CC55DB2426D10B0089278C /* LoginConfigurator.swift */,
+				B3CC55DD2426D11B0089278C /* LoginRouter.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B3CC55D62426D0B50089278C /* LoginOptions */ = {
+			isa = PBXGroup;
+			children = (
+				B3863B0C2425E2F100FC9C86 /* LoginOptionsRouter.swift */,
+				B3863B0A2425E2D700FC9C86 /* LoginOptionsConfigurator.swift */,
+				B3863B082425E2B100FC9C86 /* LoginOptionsViewModel.swift */,
+				B3863B062425E29B00FC9C86 /* LoginOptionsViewController.swift */,
+			);
+			path = LoginOptions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -656,6 +687,7 @@
 			files = (
 				B3863AAC2424913000FC9C86 /* NSObject+Ext.swift in Sources */,
 				B3863AB224249F3800FC9C86 /* BasePojoModel.swift in Sources */,
+				B3CC55D82426D0E20089278C /* LoginViewController.swift in Sources */,
 				B3863AF02425A37000FC9C86 /* OMSimpleLayout.swift in Sources */,
 				B3863A7524247ECF00FC9C86 /* AppDelegate.swift in Sources */,
 				B3863A7724247ECF00FC9C86 /* SceneDelegate.swift in Sources */,
@@ -673,8 +705,9 @@
 				B3863B022425D7EF00FC9C86 /* UIColor+Ext.swift in Sources */,
 				B3863AE3242585BE00FC9C86 /* UIView+Ext.swift in Sources */,
 				B3863ABE2425752A00FC9C86 /* LinearNavigationService.swift in Sources */,
+				B3CC55DA2426D0F80089278C /* LoginViewModel.swift in Sources */,
 				B3863AC924257B0600FC9C86 /* Protocols.swift in Sources */,
-				B3863AAF24249F1000FC9C86 /* Event.swift in Sources */,
+				B3863AAF24249F1000FC9C86 /* HappeningEvent.swift in Sources */,
 				B3863ACE24257C9F00FC9C86 /* BaseFlow.swift in Sources */,
 				B3863AC4242576A000FC9C86 /* NavigationServiceProtocol.swift in Sources */,
 				B3863AF62425A3F700FC9C86 /* OMBaseConstraintMaker.swift in Sources */,
@@ -682,8 +715,10 @@
 				B3863AF22425A3A000FC9C86 /* OMConstraintsBox.swift in Sources */,
 				B3863B122425E3F800FC9C86 /* TutorialPageViewModel.swift in Sources */,
 				B3863AFE2425D6AA00FC9C86 /* StartManager.swift in Sources */,
+				B3CC55DE2426D11B0089278C /* LoginRouter.swift in Sources */,
 				B3863AFA2425A4F000FC9C86 /* OMSizeConstraintMaker.swift in Sources */,
 				B3863B142425E41000FC9C86 /* TutorialPageConfigurator.swift in Sources */,
+				B3CC55DC2426D10B0089278C /* LoginConfigurator.swift in Sources */,
 				B3863AE52425863C00FC9C86 /* UIWindow+Ext.swift in Sources */,
 				B3863B072425E29B00FC9C86 /* LoginOptionsViewController.swift in Sources */,
 				B3863ADE242584FB00FC9C86 /* DialogService.swift in Sources */,
@@ -693,6 +728,7 @@
 				B3863ADC2425828000FC9C86 /* DisplayError.swift in Sources */,
 				B3863AB42424A65A00FC9C86 /* Address.swift in Sources */,
 				B3863AA9242490BD00FC9C86 /* FirebaseDatabaseService.swift in Sources */,
+				B3CC55E024271D410089278C /* RoundedTextField.swift in Sources */,
 				B3863B0D2425E2F100FC9C86 /* LoginOptionsRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -861,7 +897,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 58RPV4653W;
+				DEVELOPMENT_TEAM = 9U7GV48NXW;
 				INFOPLIST_FILE = ItsHappening/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -883,7 +919,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 58RPV4653W;
+				DEVELOPMENT_TEAM = 9U7GV48NXW;
 				INFOPLIST_FILE = ItsHappening/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -50,14 +50,14 @@ class StartManager {
         if #available(iOS 13, *) {
             let coloredAppearance = UINavigationBarAppearance()
             coloredAppearance.configureWithDefaultBackground()
-            coloredAppearance.backgroundColor = ColorManager.navigationBarColor
+            coloredAppearance.backgroundColor = ColorManager.hBlue
             coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
             coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
             
             UINavigationBar.appearance().standardAppearance = coloredAppearance
             UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
         } else {
-            UINavigationBar.appearance().barTintColor = ColorManager.navigationBarColor
+            UINavigationBar.appearance().barTintColor = ColorManager.hBlue
             UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
             UINavigationBar.appearance().barStyle = .black
             UINavigationBar.appearance().isTranslucent = false

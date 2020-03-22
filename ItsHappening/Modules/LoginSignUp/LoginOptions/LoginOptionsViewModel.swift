@@ -15,17 +15,23 @@ class LoginOptionsViewModel: BaseViewModel {
     private(set) var tutorialPagesViewModels = [TutorialPageViewModel]()
     private let router: LoginOptionsRouterProtocol
     
-    private let signupText = BehaviorRelay<String>(value: "Sign up".uppercased())
+    private let signupText = BehaviorRelay<String>(value: "Sign Up")
     var signupTextDriver: Driver<String> {
         return signupText.asDriver()
     }
     
-    private let continueText = BehaviorRelay<String>(value: "Continue as a guest".uppercased())
+    private let continueText = BehaviorRelay<String>(value: "Continue as a guest")
     var continueTextDriver: Driver<String> {
         return continueText.asDriver()
     }
     
+    private let loginText = BehaviorRelay<String>(value: "Log In >")
+    var loginTextDriver: Driver<String> {
+        return loginText.asDriver()
+    }
+    
     let continueCommand = PublishRelay<Void>()
+    let signUpCommand = PublishRelay<Void>()
     let loginCommand = PublishRelay<Void>()
     
     init(router: LoginOptionsRouterProtocol) {
@@ -40,11 +46,14 @@ class LoginOptionsViewModel: BaseViewModel {
         
         tutorialPagesViewModels.append(contentsOf: [pageVM1])
         
-        loginCommand.subscribe(onNext: { [weak self] in
-            self?.showLogin()
+        signUpCommand.subscribe(onNext: { [weak self] in
+            
         }).disposed(by: disposeBag)
         continueCommand.subscribe(onNext: {[weak self] in
             self?.close()
+        }).disposed(by: disposeBag)
+        loginCommand.subscribe(onNext: {[weak self] in
+            self?.showLogin()
         }).disposed(by: disposeBag)
 //        NotificationCenter.default.addObserver(self, selector: #selector(authLoginLogoutSuccessful), name: .authLoginLogoutSuccessful, object: nil)
     }
@@ -60,7 +69,7 @@ class LoginOptionsViewModel: BaseViewModel {
     }
     
     private func showLogin() {
-        // router.showLogin(with: LoginParameters(authType: .signupSignin))
+        router.showLogin()
     }
     
     @objc func authLoginLogoutSuccessful() {
