@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import FirebaseCrashlytics
 
 class LoginViewModel: BaseViewModel {
     
@@ -79,8 +80,31 @@ class LoginViewModel: BaseViewModel {
         
     }
     
+    // MARK: deinit
+    deinit {
+        debugPrint("deint \(self)")
+    }
+    
     private func login() {
-        print("login tapped \n\(emailInput.value) \n\(passwordInput.value)")
+        FirebaseAuthService
+            .sharedInstance
+            .login(withEmail: emailInput.value,
+                        password: passwordInput.value,
+                        success: {
+                            if let verified = FirebaseAuthService.sharedInstance.isEmailVerified(), !verified {
+                                FirebaseAuthService.sharedInstance.sendVerificationCode(success: {}) { (e) in
+                                    print(e)
+                                }
+                            }
+                        },
+                        failure: { (error) in
+                            debugPrint(error)
+                        })
+//        FirebaseAuthService.sharedInstance.sendVerificationCode(success: {
+//
+//        }) { (asdf) in
+//
+//        }
     }
     
     private func forgotPassword() {
@@ -88,7 +112,12 @@ class LoginViewModel: BaseViewModel {
     }
     
     func close() {
+        
         router.closePresented()
+    }
+    
+    func goSomePlace() {
+        assert(false)
     }
     
 }

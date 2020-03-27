@@ -7,8 +7,10 @@ target 'ItsHappening' do
 
   # Pods for ItsHappening
   pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Database'
   pod 'SwiftLint'
   pod 'RxSwift', '~> 5'

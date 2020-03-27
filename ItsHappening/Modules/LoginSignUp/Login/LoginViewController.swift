@@ -146,8 +146,12 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         }
     }
     
+    deinit {
+        debugPrint("deinit \(self)")
+    }
+    
     override func setupBinding() {
-        
+
         // appearance
         viewModel.logoDriver.drive(logoImageView.rx.image).disposed(by: disposeBag)
         viewModel.titleDriver.drive(titleLabel.rx.text).disposed(by: disposeBag)

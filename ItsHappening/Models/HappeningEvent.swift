@@ -8,37 +8,43 @@
 
 import Foundation
 
-class HappeningEvent: BasePojoModel {
+enum EventAccessType: Int, Codable {
     
-    public var ownerID: String
-    public var address: Address
-    public var imageURL: String?
-    public var idOfUsersWhoLiked: [String] = []
+    case accessPrivate = 0
+    case accessPublic = 1
+    case accessFriendsOnly = 3
+    case accessSelectedFriendsOnly = 4
     
-    // MARK: to init from firebase, since dictionary is what firebase returns
-    required init?(dict: [String : Any]) {
-                
-        guard let ownerID     = dict["ownerID"] as? String else { return nil }
-        guard let addressDict = dict["address"] as? [String: Any] else { return nil }
-        guard let address     = Address(dict: addressDict) else { return nil }
+}
 
-        self.ownerID = ownerID
-        self.address = address
-        self.imageURL = dict["imageURL"] as? String
-        self.idOfUsersWhoLiked = (dict["idOfUsersWhoLiked"] as? [String : String])?.keys.map { $0 } ?? []
-        
-        super.init(dict: dict)
-    }
+struct HappeningEvent: FireStoreSaveable {
     
+    let id: String
+    var ownerID: String
+    var accessType: EventAccessType
+    var address: Address
+    var imageURL: String?
+    var idOfUsersWhoLiked: [String] = []
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case accessType
+        case ownerID
+        case address
+        case imageURL
+        case idOfUsersWhoLiked
+    }
+        
     // MARK: init
     init(ownerID: String,
+         accessType: EventAccessType,
          address: Address) {
         
-        var dict = [String: Any]()
-        dict["id"] = UUID.init().uuidString
+        self.id = UUID.init().uuidString
         self.ownerID = ownerID
+        self.accessType = accessType
         self.address = address
-        super.init(dict: dict)!
-        
+       
     }
+    
 }

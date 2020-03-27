@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class LoginOptionsViewController: BasePageViewController<LoginOptionsViewModel> {
     var tutorialPages = [UIViewController]()
@@ -44,6 +46,7 @@ class LoginOptionsViewController: BasePageViewController<LoginOptionsViewModel> 
     }
     
     override func setupUI() {
+
         view.backgroundColor = ColorManager.systemBackground
         
         dataSource = self

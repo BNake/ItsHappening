@@ -38,42 +38,42 @@ extension NSObject {
     func toDict() -> [String : Any] {
 
         var dict: [String : Any] = [:]
-                
+
         let propertyNames = Mirror(reflecting: self).toDictionary().compactMap { $0.key }
         let values = Mirror(reflecting: self).toDictionary().compactMap { $0.value }
-                
+
         guard propertyNames.count != 0 else {return [:]}
         for n in 0...propertyNames.count - 1 {
-            
+
             // go throu primatives
             if values[n] is NSString ||
                 values[n] is Int ||
                 values[n] is Double ||
                 values[n] is Float ||
                 values[n] is Bool {
-                
+
                 dict[propertyNames[n]] = values[n]
-                
+
             }
-                
+
             // got throu arrays
             else if let array = values[n] as? Array<Any> {
                 var ar = [Any]()
                 for item in array {
-                    if let i = item as? BasePojoModel {
-                        ar.append(i.toDict())
-                    } else {
-                        ar.append(item)
-                    }
+//                    if let i = item as? BasePojoModel {
+//                        ar.append(i.toDict())
+//                    } else {
+//                        ar.append(item)
+//                    }
                 }
                 dict[propertyNames[n]] = ar
             }
-                
+
             // go throu dictionaries
             else if let d = values[n] as? NSDictionary {
-                
+
                 var innerDict: [String: Any] = [:]
-                
+
                 for item in d {
                     if item.value is String {
                         innerDict[item.key as! String] = item.value as! String
@@ -85,11 +85,11 @@ extension NSObject {
                 }
                 dict[propertyNames[n]] = innerDict
             }
-            
+
             // go throu objects
-            else if let object = values[n] as? BasePojoModel {
-                dict[propertyNames[n]] = object.toDict()
-            }
+//            else if let object = values[n] as? BasePojoModel {
+//                dict[propertyNames[n]] = object.toDict()
+//            }
         }
         return dict
     }
