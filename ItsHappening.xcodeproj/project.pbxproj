@@ -10,6 +10,14 @@
 		2C67E9EAC2905426BC24B3FD /* Pods_ItsHappeningTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9203642E298549DE610DB260 /* Pods_ItsHappeningTests.framework */; };
 		5261DCA529A624B23E0FB958 /* Pods_ItsHappening.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDA3FEAD72FD6D1AE8F929E7 /* Pods_ItsHappening.framework */; };
 		7C9DC6BA96A9F3DEEE41160F /* Pods_ItsHappening_ItsHappeningUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B4141D784D177B039B1F19 /* Pods_ItsHappening_ItsHappeningUITests.framework */; };
+		B361A0052431A74700DFDD39 /* LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A0042431A74700DFDD39 /* LoginFlow.swift */; };
+		B361A0072431A90600DFDD39 /* UserDefaults+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A0062431A90600DFDD39 /* UserDefaults+Codable.swift */; };
+		B361A00A2431AF5C00DFDD39 /* VerifyEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A0092431AF5C00DFDD39 /* VerifyEmailViewController.swift */; };
+		B361A00C2431AF6F00DFDD39 /* VerifyEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A00B2431AF6F00DFDD39 /* VerifyEmailViewModel.swift */; };
+		B361A00E2431AF8100DFDD39 /* VerifyEmailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A00D2431AF8100DFDD39 /* VerifyEmailRouter.swift */; };
+		B361A0102431AF9500DFDD39 /* VerifyEmailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A00F2431AF9500DFDD39 /* VerifyEmailConfigurator.swift */; };
+		B361A0132431B5A500DFDD39 /* emailSent.json in Resources */ = {isa = PBXBuildFile; fileRef = B361A0122431B5A500DFDD39 /* emailSent.json */; };
+		B361A0242432777800DFDD39 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A0232432777800DFDD39 /* Spinner.swift */; };
 		B3863A7524247ECF00FC9C86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3863A7424247ECF00FC9C86 /* AppDelegate.swift */; };
 		B3863A7724247ECF00FC9C86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3863A7624247ECF00FC9C86 /* SceneDelegate.swift */; };
 		B3863A7E24247ED300FC9C86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3863A7D24247ED300FC9C86 /* Assets.xcassets */; };
@@ -64,6 +72,7 @@
 		B3CC58D7242D6C780089278C /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC58D6242D6C780089278C /* Globals.swift */; };
 		B3CC58F0242DA6B70089278C /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC58EF242DA6B70089278C /* FirebaseAuthService.swift */; };
 		B3CC58F2242DA7530089278C /* HappeningUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC58F1242DA7530089278C /* HappeningUser.swift */; };
+		B3CC5910242F12B90089278C /* FirebaseUIPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC590F242F12B90089278C /* FirebaseUIPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +100,14 @@
 		616E54BEE5E938C9F4C1171E /* Pods-ItsHappening-ItsHappeningUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsHappening-ItsHappeningUITests.debug.xcconfig"; path = "Target Support Files/Pods-ItsHappening-ItsHappeningUITests/Pods-ItsHappening-ItsHappeningUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		69F80B19C3D9C16298A61466 /* Pods-ItsHappening-ItsHappeningUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsHappening-ItsHappeningUITests.release.xcconfig"; path = "Target Support Files/Pods-ItsHappening-ItsHappeningUITests/Pods-ItsHappening-ItsHappeningUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9203642E298549DE610DB260 /* Pods_ItsHappeningTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItsHappeningTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B361A0042431A74700DFDD39 /* LoginFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlow.swift; sourceTree = "<group>"; };
+		B361A0062431A90600DFDD39 /* UserDefaults+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Codable.swift"; sourceTree = "<group>"; };
+		B361A0092431AF5C00DFDD39 /* VerifyEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailViewController.swift; sourceTree = "<group>"; };
+		B361A00B2431AF6F00DFDD39 /* VerifyEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailViewModel.swift; sourceTree = "<group>"; };
+		B361A00D2431AF8100DFDD39 /* VerifyEmailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailRouter.swift; sourceTree = "<group>"; };
+		B361A00F2431AF9500DFDD39 /* VerifyEmailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailConfigurator.swift; sourceTree = "<group>"; };
+		B361A0122431B5A500DFDD39 /* emailSent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emailSent.json; sourceTree = "<group>"; };
+		B361A0232432777800DFDD39 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		B3863A7124247ECF00FC9C86 /* ItsHappening.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItsHappening.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3863A7424247ECF00FC9C86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3863A7624247ECF00FC9C86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +168,7 @@
 		B3CC58D6242D6C780089278C /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		B3CC58EF242DA6B70089278C /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		B3CC58F1242DA7530089278C /* HappeningUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappeningUser.swift; sourceTree = "<group>"; };
+		B3CC590F242F12B90089278C /* FirebaseUIPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUIPickerViewController.swift; sourceTree = "<group>"; };
 		BD2E6088E8EAF55D9B6ABAF1 /* Pods-ItsHappeningTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsHappeningTests.release.xcconfig"; path = "Target Support Files/Pods-ItsHappeningTests/Pods-ItsHappeningTests.release.xcconfig"; sourceTree = "<group>"; };
 		EDA3FEAD72FD6D1AE8F929E7 /* Pods_ItsHappening.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItsHappening.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -206,6 +224,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B361A0082431AF2800DFDD39 /* VerifyEmail */ = {
+			isa = PBXGroup;
+			children = (
+				B361A0092431AF5C00DFDD39 /* VerifyEmailViewController.swift */,
+				B361A00B2431AF6F00DFDD39 /* VerifyEmailViewModel.swift */,
+				B361A00D2431AF8100DFDD39 /* VerifyEmailRouter.swift */,
+				B361A00F2431AF9500DFDD39 /* VerifyEmailConfigurator.swift */,
+			);
+			path = VerifyEmail;
+			sourceTree = "<group>";
+		};
+		B361A0112431B59000DFDD39 /* LottieJson */ = {
+			isa = PBXGroup;
+			children = (
+				B361A0122431B5A500DFDD39 /* emailSent.json */,
+			);
+			path = LottieJson;
+			sourceTree = "<group>";
+		};
 		B3863A6824247ECF00FC9C86 = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +268,7 @@
 		B3863A7324247ECF00FC9C86 /* ItsHappening */ = {
 			isa = PBXGroup;
 			children = (
+				B361A0112431B59000DFDD39 /* LottieJson */,
 				B3CC58D5242D6C5F0089278C /* Global */,
 				B3863ABF2425758700FC9C86 /* Common */,
 				B3863ABB242573F400FC9C86 /* Managers */,
@@ -295,6 +333,7 @@
 				B3863AE42425863C00FC9C86 /* UIWindow+Ext.swift */,
 				B3863AFB2425A83300FC9C86 /* UINavigationController+Ext.swift */,
 				B3863B012425D7EF00FC9C86 /* UIColor+Ext.swift */,
+				B361A0062431A90600DFDD39 /* UserDefaults+Codable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -355,6 +394,7 @@
 				B3863AC1242575BE00FC9C86 /* HappeningNavigationController.swift */,
 				B3863B042425E20A00FC9C86 /* RoundedButton.swift */,
 				B3CC55DF24271D410089278C /* RoundedTextField.swift */,
+				B361A0232432777800DFDD39 /* Spinner.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -374,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				B3863ACD24257C9F00FC9C86 /* BaseFlow.swift */,
+				B361A0042431A74700DFDD39 /* LoginFlow.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -410,6 +451,7 @@
 		B3863B032425E12E00FC9C86 /* LoginSignUp */ = {
 			isa = PBXGroup;
 			children = (
+				B361A0082431AF2800DFDD39 /* VerifyEmail */,
 				B3CC55D62426D0B50089278C /* LoginOptions */,
 				B3CC55D52426D0500089278C /* Login */,
 				B3863B0E2425E3A100FC9C86 /* TutorialPages */,
@@ -434,6 +476,7 @@
 				B3CC55D92426D0F80089278C /* LoginViewModel.swift */,
 				B3CC55DB2426D10B0089278C /* LoginConfigurator.swift */,
 				B3CC55DD2426D11B0089278C /* LoginRouter.swift */,
+				B3CC590F242F12B90089278C /* FirebaseUIPickerViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -487,6 +530,7 @@
 				B3863A6F24247ECF00FC9C86 /* Resources */,
 				58B91FBEB6A6A62666BC615A /* [CP] Embed Pods Frameworks */,
 				B3CC55EF242988AC0089278C /* Firebase Crashlytics */,
+				852E8FDF10958BAF0362C477 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -525,6 +569,7 @@
 				B3863A8F24247ED400FC9C86 /* Frameworks */,
 				B3863A9024247ED400FC9C86 /* Resources */,
 				FABC82C5B39B741D92604AEF /* [CP] Embed Pods Frameworks */,
+				A2CBA7BDC7C7AB0B6AA76401 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -584,6 +629,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B361A0132431B5A500DFDD39 /* emailSent.json in Resources */,
 				B3863A8124247ED300FC9C86 /* LaunchScreen.storyboard in Resources */,
 				B3863AA5242484DE00FC9C86 /* GoogleService-Info.plist in Resources */,
 				B3863A7E24247ED300FC9C86 /* Assets.xcassets in Resources */,
@@ -646,6 +692,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ItsHappening/Pods-ItsHappening-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		852E8FDF10958BAF0362C477 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ItsHappening/Pods-ItsHappening-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ItsHappening/Pods-ItsHappening-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ItsHappening/Pods-ItsHappening-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8AFED0ACA8C3C970B45E647D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -666,6 +729,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2CBA7BDC7C7AB0B6AA76401 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ItsHappening-ItsHappeningUITests/Pods-ItsHappening-ItsHappeningUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ItsHappening-ItsHappeningUITests/Pods-ItsHappening-ItsHappeningUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ItsHappening-ItsHappeningUITests/Pods-ItsHappening-ItsHappeningUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B3CC55EF242988AC0089278C /* Firebase Crashlytics */ = {
@@ -733,14 +813,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B361A00C2431AF6F00DFDD39 /* VerifyEmailViewModel.swift in Sources */,
 				B3863AAC2424913000FC9C86 /* NSObject+Ext.swift in Sources */,
+				B361A0072431A90600DFDD39 /* UserDefaults+Codable.swift in Sources */,
 				B3CC55D82426D0E20089278C /* LoginViewController.swift in Sources */,
 				B3863AF02425A37000FC9C86 /* OMSimpleLayout.swift in Sources */,
 				B3863A7524247ECF00FC9C86 /* AppDelegate.swift in Sources */,
 				B3863A7724247ECF00FC9C86 /* SceneDelegate.swift in Sources */,
+				B361A0242432777800DFDD39 /* Spinner.swift in Sources */,
+				B361A00A2431AF5C00DFDD39 /* VerifyEmailViewController.swift in Sources */,
 				B3CC55D42426C0DA0089278C /* BaseViewController.swift in Sources */,
 				B3863B002425D75E00FC9C86 /* ColorManager.swift in Sources */,
 				B3863B102425E3E400FC9C86 /* TutorialPageViewController.swift in Sources */,
+				B361A00E2431AF8100DFDD39 /* VerifyEmailRouter.swift in Sources */,
 				B3CC58D7242D6C780089278C /* Globals.swift in Sources */,
 				B3863AF42425A3CA00FC9C86 /* OMConstraintMaker.swift in Sources */,
 				B3863AB924255A0300FC9C86 /* Coordinate.swift in Sources */,
@@ -761,10 +846,12 @@
 				B3863ACE24257C9F00FC9C86 /* BaseFlow.swift in Sources */,
 				B3863AC4242576A000FC9C86 /* NavigationServiceProtocol.swift in Sources */,
 				B3863AF62425A3F700FC9C86 /* OMBaseConstraintMaker.swift in Sources */,
+				B361A0102431AF9500DFDD39 /* VerifyEmailConfigurator.swift in Sources */,
 				B3863AF82425A49800FC9C86 /* OMConstraintChanger.swift in Sources */,
 				B3863AF22425A3A000FC9C86 /* OMConstraintsBox.swift in Sources */,
 				B3863B122425E3F800FC9C86 /* TutorialPageViewModel.swift in Sources */,
 				B3863AFE2425D6AA00FC9C86 /* StartManager.swift in Sources */,
+				B361A0052431A74700DFDD39 /* LoginFlow.swift in Sources */,
 				B3CC55DE2426D11B0089278C /* LoginRouter.swift in Sources */,
 				B3863AFA2425A4F000FC9C86 /* OMSizeConstraintMaker.swift in Sources */,
 				B3CC58D4242D62F90089278C /* FireStoreSaveable.swift in Sources */,
@@ -776,6 +863,7 @@
 				B3863B092425E2B100FC9C86 /* LoginOptionsViewModel.swift in Sources */,
 				B3CC58F0242DA6B70089278C /* FirebaseAuthService.swift in Sources */,
 				B3863AFC2425A83300FC9C86 /* UINavigationController+Ext.swift in Sources */,
+				B3CC5910242F12B90089278C /* FirebaseUIPickerViewController.swift in Sources */,
 				B3863B0B2425E2D700FC9C86 /* LoginOptionsConfigurator.swift in Sources */,
 				B3863ADC2425828000FC9C86 /* DisplayError.swift in Sources */,
 				B3863AB42424A65A00FC9C86 /* Address.swift in Sources */,

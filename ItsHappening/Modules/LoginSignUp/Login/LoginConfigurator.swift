@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import FirebaseUI
 
 final class LoginConfigurator: ConfiguratorProtocol {
     
     func configure(withData data: ParameterProtocol?, navigationService: NavigationServiceProtocol?, flow: FlowProtocol?) -> MVVMPair {
-        let viewController = LoginViewController()
+        
+        // Firebase Auth UI
+        let authUI = FUIAuth.defaultAuthUI()
+        authUI?.providers = [ FUIEmailAuth(), FUIGoogleAuth(), FUIFacebookAuth() ]
+        
         let loginRouter = LoginRouter(navigationService: navigationService!)
         let viewModel = LoginViewModel(router: loginRouter)
+        
+        let viewController = LoginViewController.init(authUI: authUI!)
+        authUI?.delegate = FirebaseAuthService.sharedInstance
         viewController.setup(viewModel: viewModel)
+        
         return (viewController, viewModel)
     }
     

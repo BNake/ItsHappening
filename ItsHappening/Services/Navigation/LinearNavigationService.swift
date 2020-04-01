@@ -17,6 +17,10 @@ class LinearNavigationService<N: HappeningNavigationController>: NavigationServi
         internalNavigationController = navigationController as! N
     }
     
+    deinit {
+        debugPrint("deinit \(self)")
+    }
+    
     func navigationController<T>() -> T where T: UIViewController {
         return self.internalNavigationController as! T
     }

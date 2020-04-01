@@ -6,23 +6,38 @@
 //  Copyright © 2020 Oleg McNamara. All rights reserved.
 //
 
-import FirebaseAuth
+import FirebaseUI
+private let keyFinishedLoginFlow = "keyFinishedLoginFlow"
 
-class FirebaseAuthService {
+class FirebaseAuthService: NSObject {
     
     // MARK: singleTon exposed instance
     static let sharedInstance = FirebaseAuthService()
     
-    private let firebaseAuth: Auth
+    private(set) var firebaseAuth: Auth
     private(set) var loggedInUser: HappeningUser?
+    private weak var navigationService: LinearNavigationService<HappeningNavigationController>?
+    
+    private(set) var finishedLoginFlow: Bool {
+        didSet {
+            UserDefaults.standard.set(finishedLoginFlow, forKey: keyFinishedLoginFlow)
+        }
+    }
     
     // MARK: init
-    private init() {
+    private override init() {
         
         firebaseAuth = Auth.auth()
         loggedInUser = nil
-        debugPrint("\(self) init")
+        finishedLoginFlow = UserDefaults.standard.bool(forKey: keyFinishedLoginFlow)
+        super.init()
+        debugPrint("init. \(self)")
         
+    }
+    
+    func showFUILogin(navServ: NavigationServiceProtocol) {
+        navigationService = navServ as? LinearNavigationService
+        let _: LinearNavigationService? = navigationService?.presentService(viewModel: LoginViewModel.self, with: nil, flow: nil)
     }
     
     func createUser(withEmail: String,
@@ -36,7 +51,7 @@ class FirebaseAuthService {
             if let e = error {
                 failure(e)
             } else {
-                debugPrint("\(self) user created")
+                debugPrint("user created. \(self)")
                 success()
             }
         }
@@ -53,7 +68,7 @@ class FirebaseAuthService {
             if let e = error {
                 failure(e)
             } else {
-                debugPrint("\(self) user logged in")
+                debugPrint("user logged in. \(self) ")
                 success()
             }
         }
@@ -61,11 +76,15 @@ class FirebaseAuthService {
     }
     
     func sendVerificationCode(success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
-        firebaseAuth.currentUser?.sendEmailVerification(completion: { (error) in
+        guard let user = firebaseAuth.currentUser else {
+            failure(DisplayError.init(code: .DENIED, message: "Must be Loged in to send email verification"))
+            return
+        }
+        user.sendEmailVerification(completion: { (error) in
             if let e = error {
                 failure(e)
             } else {
-                debugPrint("\(self) verification code sent.")
+                debugPrint("verification code sent. \(self) ")
                 success()
             }
         })
@@ -83,10 +102,27 @@ class FirebaseAuthService {
         do {
             try firebaseAuth.signOut()
             loggedInUser = nil
-            debugPrint("\(self) loggout.")
+            debugPrint("loggout. \(self)")
         } catch let error {
             debugPrint(error)
         }
     }
     
+}
+
+extension FirebaseAuthService: FUIAuthDelegate {
+
+    // MARK: called when Firebase Auth UI finishes
+
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+        
+        if error != nil {
+            debugPrint("canceled Firebase UI login \(self)")
+            return
+        }
+        
+        debugPrint("logged in")
+        let _: LinearNavigationService? = navigationService?.presentService(viewModel: VerifyEmailViewModel.self, with: nil, flow: LoginFlow())
+    }
+
 }

@@ -15,7 +15,7 @@ class LoginOptionsViewModel: BaseViewModel {
     private(set) var tutorialPagesViewModels = [TutorialPageViewModel]()
     private let router: LoginOptionsRouterProtocol
     
-    private let signupText = BehaviorRelay<String>(value: "Sign Up")
+    private let signupText = BehaviorRelay<String>(value: "Sign In")
     var signupTextDriver: Driver<String> {
         return signupText.asDriver()
     }
@@ -25,13 +25,7 @@ class LoginOptionsViewModel: BaseViewModel {
         return continueText.asDriver()
     }
     
-    private let loginText = BehaviorRelay<String>(value: "Log In >")
-    var loginTextDriver: Driver<String> {
-        return loginText.asDriver()
-    }
-    
     let continueCommand = PublishRelay<Void>()
-    let signUpCommand = PublishRelay<Void>()
     let loginCommand = PublishRelay<Void>()
     
     init(router: LoginOptionsRouterProtocol) {
@@ -46,16 +40,14 @@ class LoginOptionsViewModel: BaseViewModel {
         
         tutorialPagesViewModels.append(contentsOf: [pageVM1])
         
-        signUpCommand.subscribe(onNext: { [weak self] in
-            
-        }).disposed(by: disposeBag)
         continueCommand.subscribe(onNext: {[weak self] in
             self?.close()
         }).disposed(by: disposeBag)
+
         loginCommand.subscribe(onNext: {[weak self] in
             self?.showLogin()
         }).disposed(by: disposeBag)
-//        NotificationCenter.default.addObserver(self, selector: #selector(authLoginLogoutSuccessful), name: .authLoginLogoutSuccessful, object: nil)
+
     }
     
     let queue = DispatchQueue.main
@@ -72,15 +64,6 @@ class LoginOptionsViewModel: BaseViewModel {
         router.showLogin()
     }
     
-    @objc func authLoginLogoutSuccessful() {
-        // FIX ME
-//        if AuthManager.sharedInstance.isLogin() {
-//            router.showViewModel(MainViewModel.self, completion: { [weak self] in
-//                guard let self = self else { return }
-//                self.router.close(self)
-//            })
-//        }
-    }
 }
 
 

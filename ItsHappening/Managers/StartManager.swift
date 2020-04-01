@@ -35,9 +35,14 @@ class StartManager {
         let navVC = HappeningNavigationController()
         self.rootNavigationService = LinearNavigationService<HappeningNavigationController>(navigationController: navVC)
         
+        if !FirebaseAuthService.sharedInstance.finishedLoginFlow {
+            debugPrint("Did not finished login in, forcing logout")
+            FirebaseAuthService.sharedInstance.logout()
+        }
+        
         // present fist view controller
         let startViewModel = LoginOptionsViewModel.self
-        self.rootNavigationService.push(viewModel: startViewModel)
+        self.rootNavigationService.push(viewModel: startViewModel, flow: nil)
         // set first vc as root vc
         UIApplication.shared.keyWindow?.rootViewController = self.rootNavigationService.navigationController()
         UIApplication.shared.keyWindow?.makeKeyAndVisible()

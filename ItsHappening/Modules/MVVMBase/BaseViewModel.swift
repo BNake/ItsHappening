@@ -40,7 +40,7 @@ extension ShowErrorsProtocol {
     }
 }
 
-class BaseViewModel: ViewModelProtocol {
+class BaseViewModel: NSObject, ViewModelProtocol {
     lazy private(set) var disposeBag = DisposeBag()
 
     let displayBlockedError = PublishRelay<DisplayError>()
@@ -68,12 +68,12 @@ class BaseViewModel: ViewModelProtocol {
         // for preparing view model with any data you've pased
     }
 
-    init() {
+    override init() {
         
     }
     
     deinit {
-        
+        debugPrint("deinit \(self)")
     }
 
 }

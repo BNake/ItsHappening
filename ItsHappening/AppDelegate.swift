@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,9 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // show launch screen (until update strings)
         window?.rootViewController = StartManager.sharedInstance.launchScreenVC()
         window?.makeKeyAndVisible()
+        
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+
         // start string update and show first screen after it
         StartManager.sharedInstance.setupFirstVC()
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return ApplicationDelegate.shared.application(app, open: url, options: options)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

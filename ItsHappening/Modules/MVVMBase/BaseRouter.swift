@@ -118,6 +118,10 @@ class BaseRouter: RouterProtocol {
         self.flow = flow
     }
     
+    deinit {
+        debugPrint("deinit \(self)")
+    }
+    
     func showViewModel<T: ViewModelProtocol>(_ type: T.Type,
                                         with data: ParameterProtocol?,
                                         flow: FlowProtocol?,

@@ -8,13 +8,15 @@ target 'ItsHappening' do
   # Pods for ItsHappening
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Auth'
+  pod 'FirebaseUI'
+  pod 'FBSDKLoginKit'
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Database'
   pod 'SwiftLint'
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
+  pod 'lottie-ios'
   pod 'RxGesture'
   pod "RxMKMapView"
 

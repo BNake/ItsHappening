@@ -45,6 +45,7 @@ class ConfiguratorContainer {
         configurators[String(describing: LoginOptionsViewModel.self)] = LoginOptionsConfigurator()
         configurators[String(describing: TutorialPageViewModel.self)] = TutorialPageConfigurator()
         configurators[String(describing: LoginViewModel.self)] = LoginConfigurator()
+        configurators[String(describing: VerifyEmailViewModel.self)] = VerifyEmailConfigurator()
     }
     
     func resolve<T: ViewModelProtocol>(for type: T.Type) -> ConfiguratorProtocol {

@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import FirebaseUI
 
 protocol ViewModelEqualityProtocol {
     func compareViewModel(with: ViewModelProtocol) -> Bool
@@ -47,6 +48,10 @@ class BaseViewController<T: ViewModelProtocol>: UIViewController, ViewController
     
     lazy private(set) var disposeBag = DisposeBag()
     private(set) var viewModel: T!
+    
+    deinit {
+        debugPrint("deinit \(self)")
+    }
     
     let closeBarButton: UIButton = {
         let button = UIButton(type: .system)
@@ -181,6 +186,10 @@ class BasePageViewController<T: ViewModelProtocol>: UIPageViewController, ViewCo
     lazy private(set) var disposeBag = DisposeBag()
     private(set) var viewModel: T!
     
+    deinit {
+        debugPrint("deinit \(self)")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -204,6 +213,10 @@ class BaseTabBarViewController<T: ViewModelProtocol>: HappeningTabBarController,
     
     lazy private(set) var disposeBag = DisposeBag()
     private(set) var viewModel: T!
+    
+    deinit {
+        debugPrint("deinit \(self)")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -229,6 +242,10 @@ class BaseTableViewController<T: ViewModelProtocol>: UITableViewController, View
     lazy private(set) var disposeBag = DisposeBag()
     private(set) var viewModel: T!
     
+    deinit {
+        debugPrint("deinit \(self)")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -244,6 +261,34 @@ class BaseTableViewController<T: ViewModelProtocol>: UITableViewController, View
     }
     
     func setupBinding() {
+    }
+}
+
+class BaseGoogleLoginOptionsViewController<T: ViewModelProtocol>: FUIAuthPickerViewController, ViewControllerProtocol {
+    
+    lazy private(set) var disposeBag = DisposeBag()
+    private(set) var viewModel: T!
+    
+    deinit {
+        debugPrint("deinit \(self)")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+        setupBinding()
+    }
+    
+    func setup(viewModel: T) {
+        self.viewModel = viewModel
+    }
+    
+    func setupUI() {
+        
+    }
+    
+    func setupBinding() {
+        
     }
 }
 

@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxRelay
 
-class TutorialPageViewModel: ViewModelProtocol, ParameterProtocol {
+class TutorialPageViewModel: BaseViewModel {
     let mainImage: Observable<UIImage>?
     let title: Observable<String>?
     let text: Observable<String>?

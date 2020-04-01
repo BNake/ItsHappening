@@ -19,6 +19,6 @@ class LoginOptionsRouter: BaseRouter, LoginOptionsRouterProtocol {
     }
     
     func showLogin() {
-        let _: LinearNavigationService? = navigationService.presentService(viewModel: LoginViewModel.self, with: nil, flow: nil)
+        FirebaseAuthService.sharedInstance.showFUILogin(navServ: navigationService)
     }
 }
