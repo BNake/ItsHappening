@@ -73,8 +73,7 @@ class LoginOptionsViewController: BasePageViewController<LoginOptionsViewModel> 
     override func setupBinding() {
         viewModel?.continueTextDriver.drive(continueButton.rx.title()).disposed(by: disposeBag)
         viewModel?.signupTextDriver.drive(signUpButton.rx.title()).disposed(by: disposeBag)
-        continueButton.rx.tap
-            .bind(to: viewModel.continueCommand).disposed(by: disposeBag)
+        continueButton.rx.tap.bind(to: viewModel.continueCommand).disposed(by: disposeBag)
         signUpButton.rx.tap.bind(to: viewModel.loginCommand).disposed(by: disposeBag)
     }
     

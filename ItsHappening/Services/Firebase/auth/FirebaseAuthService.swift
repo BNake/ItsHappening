@@ -90,8 +90,21 @@ class FirebaseAuthService: NSObject {
         })
     }
     
-    func isEmailVerified() -> Bool? {
-        return firebaseAuth.currentUser?.isEmailVerified
+    func isEmailVerified() -> Bool {
+        return firebaseAuth.currentUser?.isEmailVerified ?? false
+    }
+    
+    func reloadUserData(success: @escaping () -> Void,
+                         failure: @escaping (Error) -> Void) {
+        
+        firebaseAuth.currentUser?.reload(completion: { (error) in
+            if let e = error {
+                failure(e)
+            } else {
+                debugPrint("user data reloaded. \(self)")
+                success()
+            }
+        })
     }
     
     func isLoggedIn() -> Bool {
@@ -122,7 +135,11 @@ extension FirebaseAuthService: FUIAuthDelegate {
         }
         
         debugPrint("logged in")
-        let _: LinearNavigationService? = navigationService?.presentService(viewModel: VerifyEmailViewModel.self, with: nil, flow: LoginFlow())
+        let flow = LoginFlow()
+        guard let firstViewModel = flow.firstViewModel() else { return }
+        let _: LinearNavigationService? = navigationService?.presentService(viewModel: firstViewModel,
+                                                                            with: nil,
+                                                                            flow: flow)
     }
 
 }

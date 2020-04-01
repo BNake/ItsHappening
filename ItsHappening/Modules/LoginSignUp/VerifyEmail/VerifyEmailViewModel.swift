@@ -24,6 +24,13 @@ class VerifyEmailViewModel: BaseViewModel {
         didNotGetEmailText.asDriver()
     }
     
+    private var timer: Disposable?
+    private let timeout = 500
+    private let verificationListener = PublishRelay<String>()
+    var verificationListenerDriver: Driver<String> {
+        return verificationListener.asDriver(onErrorJustReturn: "")
+    }
+    
     let didntGetEmailCommand = PublishRelay<Void>()
     let closeAction = PublishRelay<Void>()
     
@@ -39,10 +46,43 @@ class VerifyEmailViewModel: BaseViewModel {
         closeAction.subscribe(onNext: { [weak self] in
             self?.breakFlow()
         }).disposed(by: disposeBag)
+        
+        timer = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
+                    .map { [weak self] value -> String in
+                        
+                        guard let timeIsOut = self?.timeout else { self?.timer?.dispose(); return ""}
+                        guard value <= timeIsOut else { self?.timer?.dispose(); self?.breakFlow(); return ""}
+                        return "Time remaining \(timeIsOut - value)"
+                        
+                    }
+                    .subscribe({ [weak self] (value) in
+                        guard let message = value.element else { return }
+                        if FirebaseAuthService.sharedInstance.isEmailVerified() {
+                            self?.timer?.dispose()
+                            self?.breakFlow()
+                            return
+                        }
+                        self?.reloadUserData()
+                        self?.verificationListener.accept(message)
+                    })
+        
+
     }
     
+    
     private func sendEmailVerification() {
+        
         FirebaseAuthService.sharedInstance.sendVerificationCode(success: {
+            
+        }) { (error) in
+            debugPrint(error)
+        }
+    }
+    
+    private func reloadUserData() {
+        
+        // reload user data
+        FirebaseAuthService.sharedInstance.reloadUserData(success: {
             
         }) { (error) in
             debugPrint(error)

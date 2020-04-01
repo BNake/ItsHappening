@@ -17,7 +17,7 @@ final class LoginConfigurator: ConfiguratorProtocol {
         let authUI = FUIAuth.defaultAuthUI()
         authUI?.providers = [ FUIEmailAuth(), FUIGoogleAuth(), FUIFacebookAuth() ]
         
-        let loginRouter = LoginRouter(navigationService: navigationService!)
+        let loginRouter = LoginRouter(navigationService: navigationService!, flow: flow)
         let viewModel = LoginViewModel(router: loginRouter)
         
         let viewController = LoginViewController.init(authUI: authUI!)

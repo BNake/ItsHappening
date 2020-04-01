@@ -64,7 +64,7 @@ class VerifyEmailViewController: BaseViewController<VerifyEmailViewModel> {
     }
     
     override func setupBinding() {
-        viewModel.titleDriver.drive(titleLabel.rx.text).disposed(by: disposeBag)
+        viewModel.verificationListenerDriver.drive(titleLabel.rx.text).disposed(by: disposeBag)
         viewModel.didNtgetEmailDriver.drive(resendEmailButton.rx.title()).disposed(by: disposeBag)
         
         resendEmailButton.rx.tap.bind(to: viewModel.didntGetEmailCommand).disposed(by: disposeBag)
