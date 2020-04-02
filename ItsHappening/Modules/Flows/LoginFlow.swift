@@ -29,6 +29,8 @@ class LoginFlow: BaseFlow {
             viewModels.append((type: VerifyEmailViewModel.self, data: nil))
         }
         
+        viewModels.append((type: ProfileViewModel.self, data: nil))
+        
         self.haveInitializedViewModels = true
         self.viewModels = viewModels
     }
@@ -70,6 +72,7 @@ class LoginFlow: BaseFlow {
     }
     
     func firstViewModel() -> BaseViewModel.Type? {
+        indexVM += 1
         return viewModels.first?.type
     }
     

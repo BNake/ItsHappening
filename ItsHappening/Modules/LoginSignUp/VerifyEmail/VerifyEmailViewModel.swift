@@ -39,6 +39,8 @@ class VerifyEmailViewModel: BaseViewModel {
         super.init()
         sendEmailVerification()
         
+        // bind on click
+        
         didntGetEmailCommand.subscribe(onNext: { [weak self] in
             self?.sendEmailVerification()
         }).disposed(by: disposeBag)
@@ -47,19 +49,20 @@ class VerifyEmailViewModel: BaseViewModel {
             self?.breakFlow()
         }).disposed(by: disposeBag)
         
+        // Every second check if user verified email
+        
         timer = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
+                    // map from int to String
                     .map { [weak self] value -> String in
-                        
-                        guard let timeIsOut = self?.timeout else { self?.timer?.dispose(); return ""}
-                        guard value <= timeIsOut else { self?.timer?.dispose(); self?.breakFlow(); return ""}
-                        return "Time remaining \(timeIsOut - value)"
-                        
+                        return self?.getTimeRemaining(value: value) ?? ""
                     }
                     .subscribe({ [weak self] (value) in
                         guard let message = value.element else { return }
+                        
                         if FirebaseAuthService.sharedInstance.isEmailVerified() {
-                            self?.timer?.dispose()
-                            self?.breakFlow()
+                            
+                            self?.stopTimer()
+                            self?.next()
                             return
                         }
                         self?.reloadUserData()
@@ -69,6 +72,17 @@ class VerifyEmailViewModel: BaseViewModel {
 
     }
     
+    private func breakFlow() {
+        router.breakFlow(self, with: nil)
+    }
+    
+    private func next() {
+        router.next(self, with: nil)
+    }
+    
+    private func stopTimer() {
+        timer?.dispose()
+    }
     
     private func sendEmailVerification() {
         
@@ -89,7 +103,15 @@ class VerifyEmailViewModel: BaseViewModel {
         }
     }
     
-    private func breakFlow() {
-        router.breakFlow(self, with: nil)
+    private func getTimeRemaining(value: Int) -> String {
+        
+        guard value <= timeout else {
+            self.timer?.dispose()
+            router.breakFlow(self, with: nil)
+            return ""
+        }
+        
+        return "Time remaining \(timeout - value)"
     }
+    
 }

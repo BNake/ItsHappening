@@ -129,8 +129,8 @@ extension FirebaseAuthService: FUIAuthDelegate {
 
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         
-        if error != nil {
-            debugPrint("canceled Firebase UI login \(self)")
+        if let e = error {
+            debugPrint("\(e) \(self)")
             return
         }
         

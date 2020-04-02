@@ -18,6 +18,10 @@
 		B361A0102431AF9500DFDD39 /* VerifyEmailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A00F2431AF9500DFDD39 /* VerifyEmailConfigurator.swift */; };
 		B361A0132431B5A500DFDD39 /* emailSent.json in Resources */ = {isa = PBXBuildFile; fileRef = B361A0122431B5A500DFDD39 /* emailSent.json */; };
 		B361A0242432777800DFDD39 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A0232432777800DFDD39 /* Spinner.swift */; };
+		B366C64A243551A50045DC4D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B366C649243551A50045DC4D /* ProfileViewController.swift */; };
+		B366C64C243551C10045DC4D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B366C64B243551C10045DC4D /* ProfileViewModel.swift */; };
+		B366C64E243551D60045DC4D /* ProfileConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B366C64D243551D60045DC4D /* ProfileConfigurator.swift */; };
+		B366C650243551E90045DC4D /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B366C64F243551E90045DC4D /* ProfileRouter.swift */; };
 		B3863A7524247ECF00FC9C86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3863A7424247ECF00FC9C86 /* AppDelegate.swift */; };
 		B3863A7724247ECF00FC9C86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3863A7624247ECF00FC9C86 /* SceneDelegate.swift */; };
 		B3863A7E24247ED300FC9C86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3863A7D24247ED300FC9C86 /* Assets.xcassets */; };
@@ -108,6 +112,10 @@
 		B361A00F2431AF9500DFDD39 /* VerifyEmailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailConfigurator.swift; sourceTree = "<group>"; };
 		B361A0122431B5A500DFDD39 /* emailSent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emailSent.json; sourceTree = "<group>"; };
 		B361A0232432777800DFDD39 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		B366C649243551A50045DC4D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B366C64B243551C10045DC4D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		B366C64D243551D60045DC4D /* ProfileConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileConfigurator.swift; sourceTree = "<group>"; };
+		B366C64F243551E90045DC4D /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		B3863A7124247ECF00FC9C86 /* ItsHappening.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItsHappening.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3863A7424247ECF00FC9C86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3863A7624247ECF00FC9C86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -243,6 +251,17 @@
 			path = LottieJson;
 			sourceTree = "<group>";
 		};
+		B366C648243551810045DC4D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B366C649243551A50045DC4D /* ProfileViewController.swift */,
+				B366C64B243551C10045DC4D /* ProfileViewModel.swift */,
+				B366C64F243551E90045DC4D /* ProfileRouter.swift */,
+				B366C64D243551D60045DC4D /* ProfileConfigurator.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		B3863A6824247ECF00FC9C86 = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +373,7 @@
 		B3863ABA242572FE00FC9C86 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B366C648243551810045DC4D /* Profile */,
 				B3863B032425E12E00FC9C86 /* LoginSignUp */,
 				B3863ACC24257C8D00FC9C86 /* Flows */,
 				B3863AC5242579FA00FC9C86 /* MVVMBase */,
@@ -474,8 +494,8 @@
 			children = (
 				B3CC55D72426D0E20089278C /* LoginViewController.swift */,
 				B3CC55D92426D0F80089278C /* LoginViewModel.swift */,
-				B3CC55DB2426D10B0089278C /* LoginConfigurator.swift */,
 				B3CC55DD2426D11B0089278C /* LoginRouter.swift */,
+				B3CC55DB2426D10B0089278C /* LoginConfigurator.swift */,
 				B3CC590F242F12B90089278C /* FirebaseUIPickerViewController.swift */,
 			);
 			path = Login;
@@ -484,10 +504,10 @@
 		B3CC55D62426D0B50089278C /* LoginOptions */ = {
 			isa = PBXGroup;
 			children = (
+				B3863B062425E29B00FC9C86 /* LoginOptionsViewController.swift */,
+				B3863B082425E2B100FC9C86 /* LoginOptionsViewModel.swift */,
 				B3863B0C2425E2F100FC9C86 /* LoginOptionsRouter.swift */,
 				B3863B0A2425E2D700FC9C86 /* LoginOptionsConfigurator.swift */,
-				B3863B082425E2B100FC9C86 /* LoginOptionsViewModel.swift */,
-				B3863B062425E29B00FC9C86 /* LoginOptionsViewController.swift */,
 			);
 			path = LoginOptions;
 			sourceTree = "<group>";
@@ -827,8 +847,10 @@
 				B3863B102425E3E400FC9C86 /* TutorialPageViewController.swift in Sources */,
 				B361A00E2431AF8100DFDD39 /* VerifyEmailRouter.swift in Sources */,
 				B3CC58D7242D6C780089278C /* Globals.swift in Sources */,
+				B366C64C243551C10045DC4D /* ProfileViewModel.swift in Sources */,
 				B3863AF42425A3CA00FC9C86 /* OMConstraintMaker.swift in Sources */,
 				B3863AB924255A0300FC9C86 /* Coordinate.swift in Sources */,
+				B366C650243551E90045DC4D /* ProfileRouter.swift in Sources */,
 				B3CC58F2242DA7530089278C /* HappeningUser.swift in Sources */,
 				B3863ACB24257BB700FC9C86 /* ConfiguratorContainer.swift in Sources */,
 				B3863B052425E20A00FC9C86 /* RoundedButton.swift in Sources */,
@@ -855,6 +877,7 @@
 				B3CC55DE2426D11B0089278C /* LoginRouter.swift in Sources */,
 				B3863AFA2425A4F000FC9C86 /* OMSizeConstraintMaker.swift in Sources */,
 				B3CC58D4242D62F90089278C /* FireStoreSaveable.swift in Sources */,
+				B366C64A243551A50045DC4D /* ProfileViewController.swift in Sources */,
 				B3863B142425E41000FC9C86 /* TutorialPageConfigurator.swift in Sources */,
 				B3CC55DC2426D10B0089278C /* LoginConfigurator.swift in Sources */,
 				B3863AE52425863C00FC9C86 /* UIWindow+Ext.swift in Sources */,
@@ -863,6 +886,7 @@
 				B3863B092425E2B100FC9C86 /* LoginOptionsViewModel.swift in Sources */,
 				B3CC58F0242DA6B70089278C /* FirebaseAuthService.swift in Sources */,
 				B3863AFC2425A83300FC9C86 /* UINavigationController+Ext.swift in Sources */,
+				B366C64E243551D60045DC4D /* ProfileConfigurator.swift in Sources */,
 				B3CC5910242F12B90089278C /* FirebaseUIPickerViewController.swift in Sources */,
 				B3863B0B2425E2D700FC9C86 /* LoginOptionsConfigurator.swift in Sources */,
 				B3863ADC2425828000FC9C86 /* DisplayError.swift in Sources */,

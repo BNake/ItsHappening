@@ -190,6 +190,7 @@ class BaseRouter: RouterProtocol {
     // MARK: - Flow
     
     func next<T: BaseViewModel>(_ viewModel: T, with data: ParameterProtocol?) {
+        debugPrint("next")
         if let flow = flow {
             flow.nextStep(viewModel: viewModel, router: self, data: data)
         } else {

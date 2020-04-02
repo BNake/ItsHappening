@@ -39,13 +39,11 @@ class ConfiguratorContainer {
     
     private init() {
         
-        //
-        // FIX ME
-        //
         configurators[String(describing: LoginOptionsViewModel.self)] = LoginOptionsConfigurator()
         configurators[String(describing: TutorialPageViewModel.self)] = TutorialPageConfigurator()
         configurators[String(describing: LoginViewModel.self)] = LoginConfigurator()
         configurators[String(describing: VerifyEmailViewModel.self)] = VerifyEmailConfigurator()
+        configurators[String(describing: ProfileViewModel.self)] = ProfileConfigurator()
     }
     
     func resolve<T: ViewModelProtocol>(for type: T.Type) -> ConfiguratorProtocol {

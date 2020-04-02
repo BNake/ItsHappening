@@ -55,20 +55,20 @@ class StartManager {
         if #available(iOS 13, *) {
             let coloredAppearance = UINavigationBarAppearance()
             coloredAppearance.configureWithDefaultBackground()
-            coloredAppearance.backgroundColor = ColorManager.hBlue
-            coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-            coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            coloredAppearance.backgroundColor = ColorManager.hWhite
+            coloredAppearance.titleTextAttributes = [.foregroundColor: ColorManager.hBlue]
+            coloredAppearance.largeTitleTextAttributes = [.foregroundColor: ColorManager.hBlue]
             
             UINavigationBar.appearance().standardAppearance = coloredAppearance
             UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
         } else {
-            UINavigationBar.appearance().barTintColor = ColorManager.hBlue
-            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            UINavigationBar.appearance().barTintColor = ColorManager.hWhite
+            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorManager.hBlue]
             UINavigationBar.appearance().barStyle = .black
             UINavigationBar.appearance().isTranslucent = false
-            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .white
+            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = ColorManager.hBlue
         }
-        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().tintColor = ColorManager.hBlue
     }
     
     func startAllServices() {

@@ -11,7 +11,7 @@ import UIKit
 class HappeningNavigationController: UINavigationController, NavigationControllerProtocol {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return .darkContent
     }
 
 }

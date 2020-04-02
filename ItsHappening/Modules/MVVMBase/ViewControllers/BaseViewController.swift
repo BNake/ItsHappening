@@ -55,14 +55,14 @@ class BaseViewController<T: ViewModelProtocol>: UIViewController, ViewController
     
     let closeBarButton: UIButton = {
         let button = UIButton(type: .system)
-        button.tintColor = .white
+        button.tintColor = ColorManager.hBlack
         button.setImage(UIImage(named: "x")!.withRenderingMode(.alwaysTemplate), for: .normal)
         return button
     }()
     
     let activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
-        indicator.style = .white
+        indicator.style = .medium
         indicator.isHidden = true
         return indicator
     }()
@@ -98,7 +98,7 @@ class BaseViewController<T: ViewModelProtocol>: UIViewController, ViewController
         }
     }
     
-    func forceSetupCloseButton(onNavigationBar: Bool = true, color: UIColor = .white) {
+    func forceSetupCloseButton(onNavigationBar: Bool = true, color: UIColor = ColorManager.hBlack) {
         if self.navigationController == nil || !onNavigationBar {
             view.add(closeBarButton)
             
@@ -177,7 +177,7 @@ class BaseViewController<T: ViewModelProtocol>: UIViewController, ViewController
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return .darkContent
     }
 }
 
