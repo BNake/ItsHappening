@@ -15,6 +15,8 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
         return .darkContent
     }
     
+    // MARK: ui
+    
     let scrollContainer: UIScrollView = {
         let v = UIScrollView()
         return UIScrollView()
@@ -51,6 +53,8 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         return label
     }()
+    
+    // MARK: input fields
     
     private let profileImageView: UIImageView = {
         let imageview = UIImageView()
@@ -118,7 +122,6 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
     
     private let saveButton: RoundedButton = {
         let button = RoundedButton()
-        button.setTitle("Save", for: .normal)
         button.backgroundColor = .clear
         button.setTitleColor(ColorManager.hWhite, for: .normal)
         button.backgroundColor = ColorManager.hBlue
@@ -232,12 +235,25 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
     
     override func setupBinding() {
         
+        // MARK: apearance
         viewModel.logoImageDriver.drive(logoImageView.rx.image).disposed(by: disposeBag)
         viewModel.profileImageDriver.drive(profileImageView.rx.image).disposed(by: disposeBag)
         viewModel.logoTextDriver.drive(logoLabel.rx.text).disposed(by: disposeBag)
         viewModel.titleTextDriver.drive(titleLabel.rx.text).disposed(by: disposeBag)
+        viewModel.saveButtonTextDriver.drive(saveButton.rx.title()).disposed(by: disposeBag)
         
+        //MARK: input
+        userNamefield.rx.text.orEmpty.asDriver().drive(viewModel.username).disposed(by: disposeBag)
+        firstNamefield.rx.text.orEmpty.asDriver().drive(viewModel.firstName).disposed(by: disposeBag)
+        lastNamefield.rx.text.orEmpty.asDriver().drive(viewModel.lastName).disposed(by: disposeBag)
+        phoneNumberfield.rx.text.orEmpty.asDriver().drive(viewModel.phoneNumber).disposed(by: disposeBag)
+        
+        //MARK: validation
+        // viewModel.isAllInputValid.asDriver(onErrorJustReturn: false).drive(sa)
+
+        // MARK: action
         closeBarButton.rx.tap.bind(to: viewModel.closeCommand).disposed(by: disposeBag)
+        saveButton.rx.tap.bind(to: viewModel.saveCommand).disposed(by: disposeBag)
         profileImageView.addTapGestureRecognizer {
             self.viewModel.profileImageCommand.accept(())
             self.profileImageView.popAnimate()
