@@ -56,19 +56,19 @@ class StartManager {
             let coloredAppearance = UINavigationBarAppearance()
             coloredAppearance.configureWithDefaultBackground()
             coloredAppearance.backgroundColor = ColorManager.hWhite
-            coloredAppearance.titleTextAttributes = [.foregroundColor: ColorManager.hBlue]
-            coloredAppearance.largeTitleTextAttributes = [.foregroundColor: ColorManager.hBlue]
+            coloredAppearance.titleTextAttributes = [.foregroundColor: ColorManager.hBlack]
+            coloredAppearance.largeTitleTextAttributes = [.foregroundColor: ColorManager.hBlack]
             
             UINavigationBar.appearance().standardAppearance = coloredAppearance
             UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
         } else {
             UINavigationBar.appearance().barTintColor = ColorManager.hWhite
-            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorManager.hBlue]
+            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorManager.hBlack]
             UINavigationBar.appearance().barStyle = .black
             UINavigationBar.appearance().isTranslucent = false
-            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = ColorManager.hBlue
+            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = ColorManager.hBlack
         }
-        UINavigationBar.appearance().tintColor = ColorManager.hBlue
+        UINavigationBar.appearance().tintColor = ColorManager.hBlack
     }
     
     func startAllServices() {
