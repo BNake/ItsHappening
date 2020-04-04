@@ -37,7 +37,7 @@ class FirebaseAuthService: NSObject {
     
     func showFUILogin(navServ: NavigationServiceProtocol) {
         navigationService = navServ as? LinearNavigationService
-        let _: LinearNavigationService? = navigationService?.presentService(viewModel: LoginViewModel.self, with: nil, flow: nil)
+        let _: LinearNavigationService? = navigationService?.presentService(viewModel: ProfileViewModel.self, with: nil, flow: nil)
     }
     
     func createUser(withEmail: String,

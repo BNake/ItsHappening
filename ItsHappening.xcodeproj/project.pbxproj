@@ -10,6 +10,9 @@
 		2C67E9EAC2905426BC24B3FD /* Pods_ItsHappeningTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9203642E298549DE610DB260 /* Pods_ItsHappeningTests.framework */; };
 		5261DCA529A624B23E0FB958 /* Pods_ItsHappening.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDA3FEAD72FD6D1AE8F929E7 /* Pods_ItsHappening.framework */; };
 		7C9DC6BA96A9F3DEEE41160F /* Pods_ItsHappening_ItsHappeningUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B4141D784D177B039B1F19 /* Pods_ItsHappening_ItsHappeningUITests.framework */; };
+		B358F90124382701007C26F6 /* UIImageView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F90024382701007C26F6 /* UIImageView+Animation.swift */; };
+		B358F90324382736007C26F6 /* UIButton+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F90224382736007C26F6 /* UIButton+Animation.swift */; };
+		B358F9052438284B007C26F6 /* UIView+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F9042438284B007C26F6 /* UIView+Gesture.swift */; };
 		B361A0052431A74700DFDD39 /* LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A0042431A74700DFDD39 /* LoginFlow.swift */; };
 		B361A0072431A90600DFDD39 /* UserDefaults+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A0062431A90600DFDD39 /* UserDefaults+Codable.swift */; };
 		B361A00A2431AF5C00DFDD39 /* VerifyEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A0092431AF5C00DFDD39 /* VerifyEmailViewController.swift */; };
@@ -104,6 +107,9 @@
 		616E54BEE5E938C9F4C1171E /* Pods-ItsHappening-ItsHappeningUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsHappening-ItsHappeningUITests.debug.xcconfig"; path = "Target Support Files/Pods-ItsHappening-ItsHappeningUITests/Pods-ItsHappening-ItsHappeningUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		69F80B19C3D9C16298A61466 /* Pods-ItsHappening-ItsHappeningUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsHappening-ItsHappeningUITests.release.xcconfig"; path = "Target Support Files/Pods-ItsHappening-ItsHappeningUITests/Pods-ItsHappening-ItsHappeningUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9203642E298549DE610DB260 /* Pods_ItsHappeningTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItsHappeningTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B358F90024382701007C26F6 /* UIImageView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Animation.swift"; sourceTree = "<group>"; };
+		B358F90224382736007C26F6 /* UIButton+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Animation.swift"; sourceTree = "<group>"; };
+		B358F9042438284B007C26F6 /* UIView+Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gesture.swift"; sourceTree = "<group>"; };
 		B361A0042431A74700DFDD39 /* LoginFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlow.swift; sourceTree = "<group>"; };
 		B361A0062431A90600DFDD39 /* UserDefaults+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Codable.swift"; sourceTree = "<group>"; };
 		B361A0092431AF5C00DFDD39 /* VerifyEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailViewController.swift; sourceTree = "<group>"; };
@@ -353,6 +359,9 @@
 				B3863AFB2425A83300FC9C86 /* UINavigationController+Ext.swift */,
 				B3863B012425D7EF00FC9C86 /* UIColor+Ext.swift */,
 				B361A0062431A90600DFDD39 /* UserDefaults+Codable.swift */,
+				B358F90024382701007C26F6 /* UIImageView+Animation.swift */,
+				B358F90224382736007C26F6 /* UIButton+Animation.swift */,
+				B358F9042438284B007C26F6 /* UIView+Gesture.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -876,16 +885,19 @@
 				B361A0052431A74700DFDD39 /* LoginFlow.swift in Sources */,
 				B3CC55DE2426D11B0089278C /* LoginRouter.swift in Sources */,
 				B3863AFA2425A4F000FC9C86 /* OMSizeConstraintMaker.swift in Sources */,
+				B358F90324382736007C26F6 /* UIButton+Animation.swift in Sources */,
 				B3CC58D4242D62F90089278C /* FireStoreSaveable.swift in Sources */,
 				B366C64A243551A50045DC4D /* ProfileViewController.swift in Sources */,
 				B3863B142425E41000FC9C86 /* TutorialPageConfigurator.swift in Sources */,
 				B3CC55DC2426D10B0089278C /* LoginConfigurator.swift in Sources */,
 				B3863AE52425863C00FC9C86 /* UIWindow+Ext.swift in Sources */,
 				B3863B072425E29B00FC9C86 /* LoginOptionsViewController.swift in Sources */,
+				B358F9052438284B007C26F6 /* UIView+Gesture.swift in Sources */,
 				B3863ADE242584FB00FC9C86 /* DialogService.swift in Sources */,
 				B3863B092425E2B100FC9C86 /* LoginOptionsViewModel.swift in Sources */,
 				B3CC58F0242DA6B70089278C /* FirebaseAuthService.swift in Sources */,
 				B3863AFC2425A83300FC9C86 /* UINavigationController+Ext.swift in Sources */,
+				B358F90124382701007C26F6 /* UIImageView+Animation.swift in Sources */,
 				B366C64E243551D60045DC4D /* ProfileConfigurator.swift in Sources */,
 				B3CC5910242F12B90089278C /* FirebaseUIPickerViewController.swift in Sources */,
 				B3863B0B2425E2D700FC9C86 /* LoginOptionsConfigurator.swift in Sources */,

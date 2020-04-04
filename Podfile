@@ -19,6 +19,7 @@ target 'ItsHappening' do
   pod 'lottie-ios'
   pod 'RxGesture'
   pod "RxMKMapView"
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
 
   target 'ItsHappeningTests' do
     inherit! :search_paths

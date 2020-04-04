@@ -24,7 +24,18 @@ class ProfileViewModel: BaseViewModel {
         return logoImage.asDriver()
     }
     
+    private let titleText = BehaviorRelay<String>(value: "Create an Account")
+    var titleTextDriver: Driver<String> {
+        return titleText.asDriver()
+    }
+    
+    private let profileImage = BehaviorRelay<UIImage>(value: UIImage(named: "add_profile_image")!)
+    var profileImageDriver: Driver<UIImage> {
+        return profileImage.asDriver()
+    }
+    
     let closeCommand = PublishRelay<Void>()
+    let profileImageCommand = PublishRelay<Void>()
     
     init(router: ProfileRouter) {
         self.router = router
@@ -33,6 +44,11 @@ class ProfileViewModel: BaseViewModel {
         closeCommand.subscribe(onNext: { [weak self] in
             self?.breakFlow()
         }).disposed(by: disposeBag)
+        
+        profileImageCommand.subscribe(onNext: { [weak self] in
+            debugPrint("clicked")
+        }).disposed(by: disposeBag)
+        
     }
     
     private func breakFlow() {
