@@ -36,6 +36,15 @@ class ProfileViewModel: BaseViewModel {
         return profileImage.asDriver()
     }
     
+    let termsLink = "https://www.google.com"
+    let privacyLink = "https://www.google.com"
+    let termsAndServiceAttributedString = NSMutableAttributedString(string: "Terms Of Service and Privacy Policy")
+    
+    private lazy var termsText = BehaviorRelay<NSAttributedString>(value: termsAndServiceAttributedString)
+    var termsTextDriver: Driver<NSAttributedString> {
+        return termsText.asDriver()
+    }
+    
     private let saveButtonText = BehaviorRelay<String>(value: "Save")
     var saveButtonTextDriver: Driver<String> {
         return saveButtonText.asDriver()
@@ -59,6 +68,23 @@ class ProfileViewModel: BaseViewModel {
     
     init(router: ProfileRouter) {
         self.router = router
+        
+        // MARK: apearance
+        if let termsRange = termsAndServiceAttributedString.string.range(of: "Terms Of Service"),
+            let policyRance = termsAndServiceAttributedString.string.range(of: "Privacy Policy") {
+            
+            let trange = NSRange(termsRange, in: termsAndServiceAttributedString.string)
+            let prange = NSRange(policyRance, in: termsAndServiceAttributedString.string)
+
+            let linkAttributes: [NSAttributedString.Key : Any] = [
+                NSAttributedString.Key.foregroundColor: ColorManager.hBlue,
+                NSAttributedString.Key.underlineStyle: 0,
+                NSAttributedString.Key.underlineColor: ColorManager.hBlue
+                //NSAttributedString.Key.link: termsLink
+            ]
+            termsAndServiceAttributedString.addAttributes(linkAttributes, range: trange)
+            termsAndServiceAttributedString.addAttributes(linkAttributes, range: prange)
+        }
         
         // MARK: validation
         isAllInputValid = Observable.combineLatest(username.asObservable(),
@@ -103,10 +129,19 @@ class ProfileViewModel: BaseViewModel {
     }
     
     private func saveUserProfile() {
-        debugPrint("\(username.value)")
-        debugPrint("\(firstName.value)")
-        debugPrint("\(lastName.value)")
-        debugPrint("\(phoneNumber.value)")
+        
+        guard let userId = FirebaseAuthService.sharedInstance.firebaseAuth.currentUser?.uid else { debugPrint("not logged in"); return }
+        guard let email = FirebaseAuthService.sharedInstance.firebaseAuth.currentUser?.email else { debugPrint("no email"); return }
+        
+        let user = HappeningUser(id: userId, username: username.value, email: email, firstName: firstName.value, lastName: lastName.value)
+        
+        let usersTable = FirebaseFireStoreService<HappeningUser>(collectionName: "Users")
+        usersTable.set(document: user, success: {
+            debugPrint("user saved")
+        }) { (error) in
+            debugPrint(error)
+        }
+        
     }
     
 }

@@ -64,60 +64,70 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
         return imageview
     }()
     
-    private let userNamefield: SkyFloatingLabelTextField = {
-        let textField = SkyFloatingLabelTextField()
+    private let userNamefield: RoundedSkyFloatingLabelTextField = {
+        let textField = RoundedSkyFloatingLabelTextField()
+        textField.addDoneButtonOnKeyboard()
         textField.placeholder = "Username"
         textField.title = "Username"
+        textField.backgroundColor = ColorManager.systemGray5
         textField.tintColor = ColorManager.hBlack
         textField.textColor = ColorManager.hBlack
-        textField.lineColor = ColorManager.hBlack
-        textField.selectedTitleColor = ColorManager.hBlack
-        textField.selectedLineColor = ColorManager.hBlack
-        textField.lineHeight = 1.0 // bottom line height in points
-        textField.selectedLineHeight = 2.0
+        textField.placeholderColor = ColorManager.systemGray
+        textField.selectedTitleColor = ColorManager.hBlue
+        textField.lineHeight = 0.0
+        textField.selectedLineHeight = 0.0
         return textField
     }()
     
-    private let firstNamefield: SkyFloatingLabelTextField = {
-        let textField = SkyFloatingLabelTextField()
+    private let firstNamefield: RoundedSkyFloatingLabelTextField = {
+        let textField = RoundedSkyFloatingLabelTextField()
         textField.placeholder = "First Name"
         textField.title = "First"
+        textField.backgroundColor = ColorManager.systemGray5
         textField.tintColor = ColorManager.hBlack
         textField.textColor = ColorManager.hBlack
-        textField.lineColor = ColorManager.hBlack
-        textField.selectedTitleColor = ColorManager.hBlack
-        textField.selectedLineColor = ColorManager.hBlack
-        textField.lineHeight = 1.0 // bottom line height in points
-        textField.selectedLineHeight = 2.0
+        textField.placeholderColor = ColorManager.systemGray
+        textField.selectedTitleColor = ColorManager.hBlue
+        textField.lineHeight = 0.0
+        textField.selectedLineHeight = 0.0
         return textField
     }()
     
-    private let lastNamefield: SkyFloatingLabelTextField = {
-        let textField = SkyFloatingLabelTextField()
+    private let lastNamefield: RoundedSkyFloatingLabelTextField = {
+        let textField = RoundedSkyFloatingLabelTextField()
         textField.placeholder = "Last Name"
         textField.title = "Last"
+        textField.backgroundColor = ColorManager.systemGray5
         textField.tintColor = ColorManager.hBlack
         textField.textColor = ColorManager.hBlack
-        textField.lineColor = ColorManager.hBlack
-        textField.selectedTitleColor = ColorManager.hBlack
-        textField.selectedLineColor = ColorManager.hBlack
-        textField.lineHeight = 1.0 // bottom line height in points
-        textField.selectedLineHeight = 2.0
+        textField.placeholderColor = ColorManager.systemGray
+        textField.selectedTitleColor = ColorManager.hBlue
+        textField.lineHeight = 0.0
+        textField.selectedLineHeight = 0.0
         return textField
     }()
     
-    private let phoneNumberfield: SkyFloatingLabelTextField = {
-        let textField = SkyFloatingLabelTextField()
+    private let phoneNumberfield: RoundedSkyFloatingLabelTextField = {
+        let textField = RoundedSkyFloatingLabelTextField()
         textField.placeholder = "Phone Number"
         textField.title = "Phone"
+        textField.backgroundColor = ColorManager.systemGray5
         textField.tintColor = ColorManager.hBlack
         textField.textColor = ColorManager.hBlack
-        textField.lineColor = ColorManager.hBlack
-        textField.selectedTitleColor = ColorManager.hBlack
-        textField.selectedLineColor = ColorManager.hBlack
-        textField.lineHeight = 1.0 // bottom line height in points
-        textField.selectedLineHeight = 2.0
+        textField.placeholderColor = ColorManager.systemGray
+        textField.selectedTitleColor = ColorManager.hBlue
+        textField.lineHeight = 0.0
+        textField.selectedLineHeight = 0.0
         return textField
+    }()
+    
+    public let termsConditiosTextView: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.isUserInteractionEnabled = true
+        label.textColor = ColorManager.hBlack
+        return label
     }()
     
     private let saveButton: RoundedButton = {
@@ -141,7 +151,8 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
                  userNamefield,
                  firstNamefield,
                  lastNamefield,
-                 phoneNumberfield)
+                 phoneNumberfield,
+                 termsConditiosTextView)
         
         scrollContainer.add(allScrollableViewsContainer)
         
@@ -187,17 +198,17 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
         
         profileImageView.makeLayout {
             $0.centerX.equalToSuperView()
-            $0.top.equalTo(titleLabel.sl.bottom).offset(size.height * 0.07)
+            $0.top.equalTo(titleLabel.sl.bottom).offset(size.height * 0.04)
             $0.height.equalTo(size.width * 0.33)
             $0.width.equalTo(size.width * 0.33)
         }
         
         userNamefield.makeLayout {
             $0.centerX.equalToSuperView()
-            $0.top.equalTo(profileImageView.sl.bottom).offset(size.height * 0.02)
+            $0.top.equalTo(profileImageView.sl.bottom).offset(size.height * 0.05)
             $0.left.equalToSuperView().offset(size.width * 0.05)
             $0.right.equalToSuperView().offset(size.width * 0.05)
-            $0.height.equalTo(size.height * 0.07)
+            $0.height.equalTo(size.height * 0.06)
         }
         
         firstNamefield.makeLayout {
@@ -205,7 +216,7 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
             $0.top.equalTo(userNamefield.sl.bottom).offset(size.height * 0.01)
             $0.left.equalToSuperView().offset(size.width * 0.05)
             $0.right.equalToSuperView().offset(size.width * 0.05)
-            $0.height.equalTo(size.height * 0.07)
+            $0.height.equalTo(size.height * 0.06)
         }
         
         lastNamefield.makeLayout {
@@ -213,7 +224,7 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
             $0.top.equalTo(firstNamefield.sl.bottom).offset(size.height * 0.01)
             $0.left.equalToSuperView().offset(size.width * 0.05)
             $0.right.equalToSuperView().offset(size.width * 0.05)
-            $0.height.equalTo(size.height * 0.07)
+            $0.height.equalTo(size.height * 0.06)
         }
         
         phoneNumberfield.makeLayout {
@@ -221,7 +232,15 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
             $0.top.equalTo(lastNamefield.sl.bottom).offset(size.height * 0.01)
             $0.left.equalToSuperView().offset(size.width * 0.05)
             $0.right.equalToSuperView().offset(size.width * 0.05)
-            $0.height.equalTo(size.height * 0.07)
+            $0.height.equalTo(size.height * 0.06)
+        }
+        
+        termsConditiosTextView.makeLayout {
+            $0.centerX.equalToSuperView()
+            $0.top.equalTo(phoneNumberfield.sl.bottom).offset(size.height * 0.05)
+            $0.left.equalToSuperView().offset(size.width * 0.05)
+            $0.right.equalToSuperView().offset(size.width * 0.05)
+            $0.height.equalTo(size.height * 0.06)
         }
         
         saveButton.makeLayout {
@@ -241,6 +260,7 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
         viewModel.logoTextDriver.drive(logoLabel.rx.text).disposed(by: disposeBag)
         viewModel.titleTextDriver.drive(titleLabel.rx.text).disposed(by: disposeBag)
         viewModel.saveButtonTextDriver.drive(saveButton.rx.title()).disposed(by: disposeBag)
+        viewModel.termsTextDriver.drive(termsConditiosTextView.rx.attributedText).disposed(by: disposeBag)
         
         //MARK: input
         userNamefield.rx.text.orEmpty.asDriver().drive(viewModel.username).disposed(by: disposeBag)

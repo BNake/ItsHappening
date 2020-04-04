@@ -13,6 +13,7 @@
 		B358F90124382701007C26F6 /* UIImageView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F90024382701007C26F6 /* UIImageView+Animation.swift */; };
 		B358F90324382736007C26F6 /* UIButton+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F90224382736007C26F6 /* UIButton+Animation.swift */; };
 		B358F9052438284B007C26F6 /* UIView+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F9042438284B007C26F6 /* UIView+Gesture.swift */; };
+		B358F90724386FEE007C26F6 /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F90624386FEE007C26F6 /* UITextField+Ext.swift */; };
 		B361A0052431A74700DFDD39 /* LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A0042431A74700DFDD39 /* LoginFlow.swift */; };
 		B361A0072431A90600DFDD39 /* UserDefaults+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A0062431A90600DFDD39 /* UserDefaults+Codable.swift */; };
 		B361A00A2431AF5C00DFDD39 /* VerifyEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A0092431AF5C00DFDD39 /* VerifyEmailViewController.swift */; };
@@ -73,7 +74,7 @@
 		B3CC55DA2426D0F80089278C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC55D92426D0F80089278C /* LoginViewModel.swift */; };
 		B3CC55DC2426D10B0089278C /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC55DB2426D10B0089278C /* LoginConfigurator.swift */; };
 		B3CC55DE2426D11B0089278C /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC55DD2426D11B0089278C /* LoginRouter.swift */; };
-		B3CC55E024271D410089278C /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC55DF24271D410089278C /* RoundedTextField.swift */; };
+		B3CC55E024271D410089278C /* RoundedSkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC55DF24271D410089278C /* RoundedSkyFloatingLabelTextField.swift */; };
 		B3CC58CF242D0FFA0089278C /* FirebaseFireStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC58CE242D0FF90089278C /* FirebaseFireStoreService.swift */; };
 		B3CC58D4242D62F90089278C /* FireStoreSaveable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC58D3242D62F80089278C /* FireStoreSaveable.swift */; };
 		B3CC58D7242D6C780089278C /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC58D6242D6C780089278C /* Globals.swift */; };
@@ -110,6 +111,7 @@
 		B358F90024382701007C26F6 /* UIImageView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Animation.swift"; sourceTree = "<group>"; };
 		B358F90224382736007C26F6 /* UIButton+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Animation.swift"; sourceTree = "<group>"; };
 		B358F9042438284B007C26F6 /* UIView+Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gesture.swift"; sourceTree = "<group>"; };
+		B358F90624386FEE007C26F6 /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
 		B361A0042431A74700DFDD39 /* LoginFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlow.swift; sourceTree = "<group>"; };
 		B361A0062431A90600DFDD39 /* UserDefaults+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Codable.swift"; sourceTree = "<group>"; };
 		B361A0092431AF5C00DFDD39 /* VerifyEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailViewController.swift; sourceTree = "<group>"; };
@@ -176,7 +178,7 @@
 		B3CC55D92426D0F80089278C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B3CC55DB2426D10B0089278C /* LoginConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
 		B3CC55DD2426D11B0089278C /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
-		B3CC55DF24271D410089278C /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
+		B3CC55DF24271D410089278C /* RoundedSkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedSkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
 		B3CC58CE242D0FF90089278C /* FirebaseFireStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFireStoreService.swift; sourceTree = "<group>"; };
 		B3CC58D3242D62F80089278C /* FireStoreSaveable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreSaveable.swift; sourceTree = "<group>"; };
 		B3CC58D6242D6C780089278C /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				B358F90024382701007C26F6 /* UIImageView+Animation.swift */,
 				B358F90224382736007C26F6 /* UIButton+Animation.swift */,
 				B358F9042438284B007C26F6 /* UIView+Gesture.swift */,
+				B358F90624386FEE007C26F6 /* UITextField+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -422,7 +425,7 @@
 			children = (
 				B3863AC1242575BE00FC9C86 /* HappeningNavigationController.swift */,
 				B3863B042425E20A00FC9C86 /* RoundedButton.swift */,
-				B3CC55DF24271D410089278C /* RoundedTextField.swift */,
+				B3CC55DF24271D410089278C /* RoundedSkyFloatingLabelTextField.swift */,
 				B361A0232432777800DFDD39 /* Spinner.swift */,
 			);
 			path = Views;
@@ -848,6 +851,7 @@
 				B3CC55D82426D0E20089278C /* LoginViewController.swift in Sources */,
 				B3863AF02425A37000FC9C86 /* OMSimpleLayout.swift in Sources */,
 				B3863A7524247ECF00FC9C86 /* AppDelegate.swift in Sources */,
+				B358F90724386FEE007C26F6 /* UITextField+Ext.swift in Sources */,
 				B3863A7724247ECF00FC9C86 /* SceneDelegate.swift in Sources */,
 				B361A0242432777800DFDD39 /* Spinner.swift in Sources */,
 				B361A00A2431AF5C00DFDD39 /* VerifyEmailViewController.swift in Sources */,
@@ -904,7 +908,7 @@
 				B3863ADC2425828000FC9C86 /* DisplayError.swift in Sources */,
 				B3863AB42424A65A00FC9C86 /* Address.swift in Sources */,
 				B3863AA9242490BD00FC9C86 /* FirebaseDatabaseService.swift in Sources */,
-				B3CC55E024271D410089278C /* RoundedTextField.swift in Sources */,
+				B3CC55E024271D410089278C /* RoundedSkyFloatingLabelTextField.swift in Sources */,
 				B3863B0D2425E2F100FC9C86 /* LoginOptionsRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
