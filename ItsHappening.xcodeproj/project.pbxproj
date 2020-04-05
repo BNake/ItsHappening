@@ -14,6 +14,10 @@
 		B358F90324382736007C26F6 /* UIButton+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F90224382736007C26F6 /* UIButton+Animation.swift */; };
 		B358F9052438284B007C26F6 /* UIView+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F9042438284B007C26F6 /* UIView+Gesture.swift */; };
 		B358F90724386FEE007C26F6 /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F90624386FEE007C26F6 /* UITextField+Ext.swift */; };
+		B358F90A2439567F007C26F6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F9092439567F007C26F6 /* HomeViewController.swift */; };
+		B358F90C24395696007C26F6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F90B24395696007C26F6 /* HomeViewModel.swift */; };
+		B358F90E243956A9007C26F6 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F90D243956A9007C26F6 /* HomeRouter.swift */; };
+		B358F910243956B5007C26F6 /* HomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F90F243956B5007C26F6 /* HomeConfigurator.swift */; };
 		B361A0052431A74700DFDD39 /* LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A0042431A74700DFDD39 /* LoginFlow.swift */; };
 		B361A0072431A90600DFDD39 /* UserDefaults+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A0062431A90600DFDD39 /* UserDefaults+Codable.swift */; };
 		B361A00A2431AF5C00DFDD39 /* VerifyEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A0092431AF5C00DFDD39 /* VerifyEmailViewController.swift */; };
@@ -112,6 +116,10 @@
 		B358F90224382736007C26F6 /* UIButton+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Animation.swift"; sourceTree = "<group>"; };
 		B358F9042438284B007C26F6 /* UIView+Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gesture.swift"; sourceTree = "<group>"; };
 		B358F90624386FEE007C26F6 /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
+		B358F9092439567F007C26F6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B358F90B24395696007C26F6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B358F90D243956A9007C26F6 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		B358F90F243956B5007C26F6 /* HomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConfigurator.swift; sourceTree = "<group>"; };
 		B361A0042431A74700DFDD39 /* LoginFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlow.swift; sourceTree = "<group>"; };
 		B361A0062431A90600DFDD39 /* UserDefaults+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Codable.swift"; sourceTree = "<group>"; };
 		B361A0092431AF5C00DFDD39 /* VerifyEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +246,17 @@
 				9203642E298549DE610DB260 /* Pods_ItsHappeningTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B358F9082439566C007C26F6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B358F9092439567F007C26F6 /* HomeViewController.swift */,
+				B358F90B24395696007C26F6 /* HomeViewModel.swift */,
+				B358F90D243956A9007C26F6 /* HomeRouter.swift */,
+				B358F90F243956B5007C26F6 /* HomeConfigurator.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		B361A0082431AF2800DFDD39 /* VerifyEmail */ = {
@@ -385,6 +404,7 @@
 		B3863ABA242572FE00FC9C86 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B358F9082439566C007C26F6 /* Home */,
 				B366C648243551810045DC4D /* Profile */,
 				B3863B032425E12E00FC9C86 /* LoginSignUp */,
 				B3863ACC24257C8D00FC9C86 /* Flows */,
@@ -854,6 +874,7 @@
 				B358F90724386FEE007C26F6 /* UITextField+Ext.swift in Sources */,
 				B3863A7724247ECF00FC9C86 /* SceneDelegate.swift in Sources */,
 				B361A0242432777800DFDD39 /* Spinner.swift in Sources */,
+				B358F910243956B5007C26F6 /* HomeConfigurator.swift in Sources */,
 				B361A00A2431AF5C00DFDD39 /* VerifyEmailViewController.swift in Sources */,
 				B3CC55D42426C0DA0089278C /* BaseViewController.swift in Sources */,
 				B3863B002425D75E00FC9C86 /* ColorManager.swift in Sources */,
@@ -862,6 +883,7 @@
 				B3CC58D7242D6C780089278C /* Globals.swift in Sources */,
 				B366C64C243551C10045DC4D /* ProfileViewModel.swift in Sources */,
 				B3863AF42425A3CA00FC9C86 /* OMConstraintMaker.swift in Sources */,
+				B358F90C24395696007C26F6 /* HomeViewModel.swift in Sources */,
 				B3863AB924255A0300FC9C86 /* Coordinate.swift in Sources */,
 				B366C650243551E90045DC4D /* ProfileRouter.swift in Sources */,
 				B3CC58F2242DA7530089278C /* HappeningUser.swift in Sources */,
@@ -869,6 +891,7 @@
 				B3863B052425E20A00FC9C86 /* RoundedButton.swift in Sources */,
 				B3863AE12425855000FC9C86 /* DialogAction.swift in Sources */,
 				B3CC58CF242D0FFA0089278C /* FirebaseFireStoreService.swift in Sources */,
+				B358F90E243956A9007C26F6 /* HomeRouter.swift in Sources */,
 				B3863AC2242575BE00FC9C86 /* HappeningNavigationController.swift in Sources */,
 				B3863AC724257A2700FC9C86 /* BaseViewModel.swift in Sources */,
 				B3863ADA2425813900FC9C86 /* BaseRouter.swift in Sources */,
@@ -876,6 +899,7 @@
 				B3863AE3242585BE00FC9C86 /* UIView+Ext.swift in Sources */,
 				B3863ABE2425752A00FC9C86 /* LinearNavigationService.swift in Sources */,
 				B3CC55DA2426D0F80089278C /* LoginViewModel.swift in Sources */,
+				B358F90A2439567F007C26F6 /* HomeViewController.swift in Sources */,
 				B3863AC924257B0600FC9C86 /* Protocols.swift in Sources */,
 				B3863AAF24249F1000FC9C86 /* HappeningEvent.swift in Sources */,
 				B3863ACE24257C9F00FC9C86 /* BaseFlow.swift in Sources */,

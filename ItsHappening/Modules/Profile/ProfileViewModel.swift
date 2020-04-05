@@ -130,17 +130,18 @@ class ProfileViewModel: BaseViewModel {
     
     private func saveUserProfile() {
         
-        guard let userId = FirebaseAuthService.sharedInstance.firebaseAuth.currentUser?.uid else { debugPrint("not logged in"); return }
-        guard let email = FirebaseAuthService.sharedInstance.firebaseAuth.currentUser?.email else { debugPrint("no email"); return }
-        
-        let user = HappeningUser(id: userId, username: username.value, email: email, firstName: firstName.value, lastName: lastName.value)
-        
-        let usersTable = FirebaseFireStoreService<HappeningUser>(collectionName: "Users")
-        usersTable.set(document: user, success: {
-            debugPrint("user saved")
-        }) { (error) in
-            debugPrint(error)
-        }
+        router.flow?.finishFlow(viewModel: self, router: router)
+//        guard let userId = FirebaseAuthService.sharedInstance.firebaseAuth.currentUser?.uid else { debugPrint("not logged in"); return }
+//        guard let email = FirebaseAuthService.sharedInstance.firebaseAuth.currentUser?.email else { debugPrint("no email"); return }
+//
+//        let user = HappeningUser(id: userId, username: username.value, email: email, firstName: firstName.value, lastName: lastName.value)
+//
+//        let usersTable = FirebaseFireStoreService<HappeningUser>(collectionName: "Users")
+//        usersTable.set(document: user, success: {
+//            debugPrint("user saved")
+//        }) { (error) in
+//            debugPrint(error)
+//        }
         
     }
     
