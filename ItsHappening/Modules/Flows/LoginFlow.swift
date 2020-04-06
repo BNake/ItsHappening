@@ -12,33 +12,34 @@ class LoginFlow: BaseFlow {
     
     var indexVM: Int = 0
     var viewModels : [(type: BaseViewModel.Type, data: ParameterProtocol?)] = []
-    var needEnterPhone = false
-    private var haveInitializedViewModels = false
     
     init() {
         super.init()
         createViewModelsFlow()
+    }
+    
+    override func startFlow(router: RouterProtocol, data: ParameterProtocol?) {
+        nextStep(viewModel: LoginViewModel(), router: router as! BaseRouter, data: nil)
     }
         
     func createViewModelsFlow() {
         indexVM = 0
         var viewModels : [(type: BaseViewModel.Type, data: ParameterProtocol?)] = []
                 
-        // MARK: - Show email sent
+        // MARK: - email sent
         if !FirebaseAuthService.sharedInstance.isEmailVerified() {
             viewModels.append((type: VerifyEmailViewModel.self, data: nil))
         }
         
-        viewModels.append((type: ProfileViewModel.self, data: nil))
+        // MARK: - create profile
+        if FirebaseAuthService.sharedInstance.loggedInUser.value == nil {
+            viewModels.append((type: ProfileViewModel.self, data: nil))
+        }
         
-        self.haveInitializedViewModels = true
         self.viewModels = viewModels
     }
     
     override func nextStep(viewModel: BaseViewModel, router: BaseRouter, data: ParameterProtocol?) {
-        if !haveInitializedViewModels {
-            createViewModelsFlow()
-        }
         self.chechNextStep(viewModel: viewModel, router: router, data: data)
     }
     
@@ -71,11 +72,6 @@ class LoginFlow: BaseFlow {
         }
     }
     
-    func firstViewModel() -> BaseViewModel.Type? {
-        indexVM += 1
-        return viewModels.first?.type
-    }
-    
     override func finishFlow(viewModel: BaseViewModel, router: BaseRouter) {
 //        AuthManager.sharedInstance.doLogin()
         //NotificationCenter.default.post(name: .authLoginLogoutSuccessful, object: nil)
@@ -91,32 +87,3 @@ class LoginFlow: BaseFlow {
     }
         
 }
-
-//        guard FirebaseAuthService.sharedInstance.isLoggedIn() else { return }
-//        guard let userId = FirebaseAuthService.sharedInstance.firebaseAuth.currentUser?.uid else {
-//            return
-//        }
-//        let usersTable = FirebaseFireStoreService<HappeningUser>(collectionName: "Users")
-//
-//        usersTable.getDocument(documnetId: userId, success: { (user) in
-//
-//            print("some user acuired")
-//        }) { (error) in
-//
-//            guard let displayError = error as? DisplayError else { return }
-//            switch displayError.code {
-//            case .Not_Found:
-//                // go to create userName and the rest of the User info
-//                self.router.next(self, with: nil)
-//                break
-//            case .Parse_Error:
-//                // something must of happened with data
-//                break
-//            case .unknown:
-//                // idk what happened here
-//                break
-//            case .DENIED:
-//                break
-//            }
-//
-//        }

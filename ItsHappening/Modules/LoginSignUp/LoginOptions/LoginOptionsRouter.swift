@@ -9,7 +9,7 @@
 import UIKit
 
 protocol LoginOptionsRouterProtocol: RouterProtocol {
-    func showLogin()
+    func showLogin(completion: Action?)
 }
 
 class LoginOptionsRouter: BaseRouter, LoginOptionsRouterProtocol {
@@ -18,7 +18,9 @@ class LoginOptionsRouter: BaseRouter, LoginOptionsRouterProtocol {
         navigationService.remove(viewModel: viewModel)
     }
     
-    func showLogin() {
-        FirebaseAuthService.sharedInstance.showFUILogin(navServ: navigationService)
+    func showLogin(completion: Action? = nil) {
+        FirebaseAuthService.sharedInstance.showFUILogin(navServ: navigationService) {
+            completion?()
+        }
     }
 }

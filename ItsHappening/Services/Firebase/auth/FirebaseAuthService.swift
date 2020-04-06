@@ -7,7 +7,15 @@
 //
 
 import FirebaseUI
+import RxSwift
+import RxCocoa
+
 private let keyFinishedLoginFlow = "keyFinishedLoginFlow"
+public enum Status {
+    case success
+    case failed(errorCode: ErrorCode)
+}
+public typealias StatusCompletion = (Status) -> Void
 
 class FirebaseAuthService: NSObject {
     
@@ -15,9 +23,10 @@ class FirebaseAuthService: NSObject {
     static let sharedInstance = FirebaseAuthService()
     
     private(set) var firebaseAuth: Auth
-    private(set) var loggedInUser: HappeningUser?
+    private(set) var loggedInUser: BehaviorRelay<HappeningUser?> = BehaviorRelay(value: nil)
     private weak var navigationService: LinearNavigationService<HappeningNavigationController>?
     
+    private var postLoginfinishAction: Action = {}
     private(set) var finishedLoginFlow: Bool {
         didSet {
             UserDefaults.standard.set(finishedLoginFlow, forKey: keyFinishedLoginFlow)
@@ -28,15 +37,37 @@ class FirebaseAuthService: NSObject {
     private override init() {
         
         firebaseAuth = Auth.auth()
-        loggedInUser = nil
         finishedLoginFlow = UserDefaults.standard.bool(forKey: keyFinishedLoginFlow)
-        super.init()
-        debugPrint("init. \(self)")
         
+        super.init()
+        setHappeningCurrentUser()
+        debugPrint("init. \(self)")
     }
     
-    func showFUILogin(navServ: NavigationServiceProtocol) {
+    private func setHappeningCurrentUser(completion: StatusCompletion? = nil) {
+        
+        reloadUserData { [weak self] _ in
+
+            guard let loggedInUserId = self?.firebaseAuth.currentUser?.uid else { completion?(.failed(errorCode: .DENIED)); return }
+            let usersTable = FirebaseFireStoreService<HappeningUser>(collectionName: "Users")
+            
+            // attempt to get user from Firestore
+            usersTable.getDocument(documnetId: loggedInUserId, success: { [weak self] (happeningUser) in
+                
+                self?.loggedInUser.accept(happeningUser)
+                completion?(.success)
+                
+            }) { (error) in
+                guard let e = error as? DisplayError else { completion?(.failed(errorCode: .unknown)); return }
+                completion?(.failed(errorCode: e.code))
+            }
+        }
+
+    }
+    
+    func showFUILogin(navServ: NavigationServiceProtocol, finishAction: @escaping Action = {}) {
         navigationService = navServ as? LinearNavigationService
+        postLoginfinishAction = finishAction
         let _: LinearNavigationService? = navigationService?.presentService(viewModel: LoginViewModel.self, with: nil, flow: nil)
     }
     
@@ -75,13 +106,14 @@ class FirebaseAuthService: NSObject {
 
     }
     
-    func sendVerificationCode(success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
+    func sendVerificationCode(success: @escaping () -> Void = {}, failure: @escaping (Error) -> Void = { _ in }) {
         guard let user = firebaseAuth.currentUser else {
             failure(DisplayError.init(code: .DENIED, message: "Must be Loged in to send email verification"))
             return
         }
         user.sendEmailVerification(completion: { (error) in
             if let e = error {
+                debugPrint("\(e) \(self) ")
                 failure(e)
             } else {
                 debugPrint("verification code sent. \(self) ")
@@ -94,16 +126,14 @@ class FirebaseAuthService: NSObject {
         return firebaseAuth.currentUser?.isEmailVerified ?? false
     }
     
-    func reloadUserData(success: @escaping () -> Void,
-                         failure: @escaping (Error) -> Void) {
+    func reloadUserData(completion: StatusCompletion? = nil) {
         
         firebaseAuth.currentUser?.reload(completion: { (error) in
-            if let e = error {
-                failure(e)
-            } else {
-                debugPrint("user data reloaded. \(self)")
-                success()
+            if error != nil {
+                completion?(.failed(errorCode: .unknown))
+                return
             }
+            completion?(.success)
         })
     }
     
@@ -114,7 +144,7 @@ class FirebaseAuthService: NSObject {
     func logout() {
         do {
             try firebaseAuth.signOut()
-            loggedInUser = nil
+            loggedInUser.accept(nil)
             debugPrint("loggout. \(self)")
         } catch let error {
             debugPrint(error)
@@ -134,18 +164,18 @@ extension FirebaseAuthService: FUIAuthDelegate {
             return
         }
         
-        debugPrint("logged in")
-        let flow = LoginFlow()
-        flow.finishAction = { [weak self] in
-            self?.finishedLoginFlow = true
-            let _: LinearNavigationService? = self?.navigationService?.presentService(viewModel: HomeViewModel.self,
-            with: nil,
-            flow: nil)
+        setHappeningCurrentUser { [weak self] (status) in
+            self?.startFlow()
         }
-        guard let firstViewModel = flow.firstViewModel() else { return }
-        let _: LinearNavigationService? = navigationService?.presentService(viewModel: firstViewModel,
-                                                                            with: nil,
-                                                                            flow: flow)
     }
-
+    
+    private func startFlow() {
+        let flow = LoginFlow()
+        flow.finishAction =  { [weak self] in
+            self?.setHappeningCurrentUser()
+            self?.postLoginfinishAction()
+            self?.finishedLoginFlow = true
+        }
+        flow.startFlow(router: LoginRouter(navigationService: navigationService!, flow: flow), data: nil)
+    }
 }

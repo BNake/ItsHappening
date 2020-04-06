@@ -23,7 +23,9 @@ class HomeViewController: BaseViewController<HomeViewModel> {
             $0.centerX.equalToSuperView()
             $0.centerY.equalToSuperView()
         }
-        
+        FirebaseAuthService.sharedInstance.loggedInUser.subscribe(onNext: { [weak self] (happeningUser) in
+            self?.label.text = happeningUser?.firstName ?? "logged out"
+        }).disposed(by: disposeBag)
         label.addTapGestureRecognizer {
             FirebaseAuthService.sharedInstance.logout()
         }

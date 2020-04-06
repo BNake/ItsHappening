@@ -16,10 +16,7 @@ final class LoginConfigurator: ConfiguratorProtocol {
         // Firebase Auth UI
         let authUI = FUIAuth.defaultAuthUI()
         authUI?.providers = [ FUIEmailAuth(), FUIGoogleAuth(), FUIFacebookAuth() ]
-        
-        let loginRouter = LoginRouter(navigationService: navigationService!, flow: flow)
-        let viewModel = LoginViewModel(router: loginRouter)
-        
+        let viewModel = LoginViewModel()
         let viewController = LoginViewController.init(authUI: authUI!)
         authUI?.delegate = FirebaseAuthService.sharedInstance
         viewController.setup(viewModel: viewModel)

@@ -37,20 +37,17 @@ class VerifyEmailViewModel: BaseViewModel {
     init(router: VerifyEmailRouter) {
         self.router = router
         super.init()
-        sendEmailVerification()
         
-        // bind on click
-        
-        didntGetEmailCommand.subscribe(onNext: { [weak self] in
-            self?.sendEmailVerification()
+        // MARK: action
+        didntGetEmailCommand.subscribe(onNext: {
+            FirebaseAuthService.sharedInstance.sendVerificationCode()
         }).disposed(by: disposeBag)
         
         closeAction.subscribe(onNext: { [weak self] in
             self?.breakFlow()
         }).disposed(by: disposeBag)
         
-        // Every second check if user verified email
-        
+        // MARK: listener
         timer = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
                     // map from int to String
                     .map { [weak self] value -> String in
@@ -65,7 +62,7 @@ class VerifyEmailViewModel: BaseViewModel {
                             self?.next()
                             return
                         }
-                        self?.reloadUserData()
+                        FirebaseAuthService.sharedInstance.reloadUserData()
                         self?.verificationListener.accept(message)
                     })
         
@@ -82,25 +79,6 @@ class VerifyEmailViewModel: BaseViewModel {
     
     private func stopTimer() {
         timer?.dispose()
-    }
-    
-    private func sendEmailVerification() {
-        
-        FirebaseAuthService.sharedInstance.sendVerificationCode(success: {
-            
-        }) { (error) in
-            debugPrint(error)
-        }
-    }
-    
-    private func reloadUserData() {
-        
-        // reload user data
-        FirebaseAuthService.sharedInstance.reloadUserData(success: {
-            
-        }) { (error) in
-            debugPrint(error)
-        }
     }
     
     private func getTimeRemaining(value: Int) -> String {

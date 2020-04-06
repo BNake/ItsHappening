@@ -6,7 +6,7 @@
 //  Copyright © 2020 Oleg McNamara. All rights reserved.
 //
 
-enum ErrorCode {
+public enum ErrorCode {
     case Not_Found
     case Parse_Error
     case DENIED

@@ -17,16 +17,4 @@ enum LoginResult {
 }
 
 class LoginViewModel: BaseViewModel {
-    
-    // MARK: router
-    private let router: LoginRouter
-            
-    // MARK: init
-    
-    init(router: LoginRouter) {
-        self.router = router
-        super.init()
-        
-    }
-    
 }

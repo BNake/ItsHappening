@@ -41,7 +41,7 @@ class LoginOptionsViewModel: BaseViewModel {
         tutorialPagesViewModels.append(contentsOf: [pageVM1])
         
         continueCommand.subscribe(onNext: {[weak self] in
-            self?.close()
+            self?.gohome()
         }).disposed(by: disposeBag)
 
         loginCommand.subscribe(onNext: {[weak self] in
@@ -52,16 +52,17 @@ class LoginOptionsViewModel: BaseViewModel {
     
     let queue = DispatchQueue.main
     
-    private func close() {
-        // FIX ME
-//        router.showViewModel(MainViewModel.self, completion: { [weak self] in
-//            guard let self = self else { return }
-//            self.router.close(self)
-//        })
+    private func gohome() {
+        router.presentService(viewModel: HomeViewModel.self, completion: { [weak self] in
+            guard let self = self else { return }
+            self.router.close(self)
+        })
     }
     
     private func showLogin() {
-        router.showLogin()
+        router.showLogin { [weak self] in
+            self?.gohome()
+        }
     }
     
 }
