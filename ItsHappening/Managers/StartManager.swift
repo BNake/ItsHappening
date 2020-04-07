@@ -43,10 +43,10 @@ class StartManager {
         // present fist view controller
         let startViewModel = FirebaseAuthService.sharedInstance.finishedLoginFlow &&
                              FirebaseAuthService.sharedInstance.isLoggedIn() ?
-                                HomeViewModel.self :
+                                MainViewModel.self :
                                 LoginOptionsViewModel.self
         
-        self.rootNavigationService.push(viewModel: startViewModel, flow: nil)
+        self.rootNavigationService.push(viewModel: startViewModel.self, flow: nil)
         // set first vc as root vc
         UIApplication.shared.keyWindow?.rootViewController = self.rootNavigationService.navigationController()
         UIApplication.shared.keyWindow?.makeKeyAndVisible()

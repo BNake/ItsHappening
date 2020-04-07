@@ -45,6 +45,7 @@ class ConfiguratorContainer {
         configurators[String(describing: VerifyEmailViewModel.self)] = VerifyEmailConfigurator()
         configurators[String(describing: ProfileViewModel.self)] = ProfileConfigurator()
         configurators[String(describing: HomeViewModel.self)] = HomeConfigurator()
+        configurators[String(describing: MainViewModel.self)] = MainConfigurator()
 
     }
     

@@ -16,6 +16,16 @@ class HomeViewController: BaseViewController<HomeViewModel> {
         return l
     }()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = ColorManager.systemBackground
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func setupUI() {
         self.view.add(label)
         

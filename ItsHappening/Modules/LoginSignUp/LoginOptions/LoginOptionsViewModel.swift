@@ -53,7 +53,7 @@ class LoginOptionsViewModel: BaseViewModel {
     let queue = DispatchQueue.main
     
     private func gohome() {
-        router.presentService(viewModel: HomeViewModel.self, completion: { [weak self] in
+        router.presentService(viewModel: MainViewModel.self, completion: { [weak self] in
             guard let self = self else { return }
             self.router.close(self)
         })

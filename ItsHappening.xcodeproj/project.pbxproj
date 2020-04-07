@@ -18,6 +18,12 @@
 		B358F90C24395696007C26F6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F90B24395696007C26F6 /* HomeViewModel.swift */; };
 		B358F90E243956A9007C26F6 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F90D243956A9007C26F6 /* HomeRouter.swift */; };
 		B358F910243956B5007C26F6 /* HomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F90F243956B5007C26F6 /* HomeConfigurator.swift */; };
+		B35CE57E243C228500C5E1E6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CE57D243C228500C5E1E6 /* MainViewController.swift */; };
+		B35CE580243C229700C5E1E6 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CE57F243C229700C5E1E6 /* MainViewModel.swift */; };
+		B35CE582243C22AD00C5E1E6 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CE581243C22AD00C5E1E6 /* MainRouter.swift */; };
+		B35CE584243C22C100C5E1E6 /* MainConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CE583243C22C100C5E1E6 /* MainConfigurator.swift */; };
+		B35CE586243C253B00C5E1E6 /* TabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CE585243C253B00C5E1E6 /* TabViewModel.swift */; };
+		B35CE588243C321200C5E1E6 /* TabNavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CE587243C321200C5E1E6 /* TabNavigationService.swift */; };
 		B361A0052431A74700DFDD39 /* LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A0042431A74700DFDD39 /* LoginFlow.swift */; };
 		B361A0072431A90600DFDD39 /* UserDefaults+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A0062431A90600DFDD39 /* UserDefaults+Codable.swift */; };
 		B361A00A2431AF5C00DFDD39 /* VerifyEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361A0092431AF5C00DFDD39 /* VerifyEmailViewController.swift */; };
@@ -120,6 +126,12 @@
 		B358F90B24395696007C26F6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B358F90D243956A9007C26F6 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		B358F90F243956B5007C26F6 /* HomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConfigurator.swift; sourceTree = "<group>"; };
+		B35CE57D243C228500C5E1E6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B35CE57F243C229700C5E1E6 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		B35CE581243C22AD00C5E1E6 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		B35CE583243C22C100C5E1E6 /* MainConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConfigurator.swift; sourceTree = "<group>"; };
+		B35CE585243C253B00C5E1E6 /* TabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewModel.swift; sourceTree = "<group>"; };
+		B35CE587243C321200C5E1E6 /* TabNavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationService.swift; sourceTree = "<group>"; };
 		B361A0042431A74700DFDD39 /* LoginFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlow.swift; sourceTree = "<group>"; };
 		B361A0062431A90600DFDD39 /* UserDefaults+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Codable.swift"; sourceTree = "<group>"; };
 		B361A0092431AF5C00DFDD39 /* VerifyEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +269,18 @@
 				B358F90F243956B5007C26F6 /* HomeConfigurator.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		B35CE57C243C222900C5E1E6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B35CE57D243C228500C5E1E6 /* MainViewController.swift */,
+				B35CE57F243C229700C5E1E6 /* MainViewModel.swift */,
+				B35CE581243C22AD00C5E1E6 /* MainRouter.swift */,
+				B35CE583243C22C100C5E1E6 /* MainConfigurator.swift */,
+				B35CE585243C253B00C5E1E6 /* TabViewModel.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		B361A0082431AF2800DFDD39 /* VerifyEmail */ = {
@@ -404,6 +428,7 @@
 		B3863ABA242572FE00FC9C86 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B35CE57C243C222900C5E1E6 /* Main */,
 				B358F9082439566C007C26F6 /* Home */,
 				B366C648243551810045DC4D /* Profile */,
 				B3863B032425E12E00FC9C86 /* LoginSignUp */,
@@ -427,6 +452,7 @@
 			children = (
 				B3863ABD2425752A00FC9C86 /* LinearNavigationService.swift */,
 				B3863AC3242576A000FC9C86 /* NavigationServiceProtocol.swift */,
+				B35CE587243C321200C5E1E6 /* TabNavigationService.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -882,6 +908,8 @@
 				B361A00E2431AF8100DFDD39 /* VerifyEmailRouter.swift in Sources */,
 				B3CC58D7242D6C780089278C /* Globals.swift in Sources */,
 				B366C64C243551C10045DC4D /* ProfileViewModel.swift in Sources */,
+				B35CE582243C22AD00C5E1E6 /* MainRouter.swift in Sources */,
+				B35CE588243C321200C5E1E6 /* TabNavigationService.swift in Sources */,
 				B3863AF42425A3CA00FC9C86 /* OMConstraintMaker.swift in Sources */,
 				B358F90C24395696007C26F6 /* HomeViewModel.swift in Sources */,
 				B3863AB924255A0300FC9C86 /* Coordinate.swift in Sources */,
@@ -893,6 +921,7 @@
 				B3CC58CF242D0FFA0089278C /* FirebaseFireStoreService.swift in Sources */,
 				B358F90E243956A9007C26F6 /* HomeRouter.swift in Sources */,
 				B3863AC2242575BE00FC9C86 /* HappeningNavigationController.swift in Sources */,
+				B35CE580243C229700C5E1E6 /* MainViewModel.swift in Sources */,
 				B3863AC724257A2700FC9C86 /* BaseViewModel.swift in Sources */,
 				B3863ADA2425813900FC9C86 /* BaseRouter.swift in Sources */,
 				B3863B022425D7EF00FC9C86 /* UIColor+Ext.swift in Sources */,
@@ -909,17 +938,20 @@
 				B3863AF82425A49800FC9C86 /* OMConstraintChanger.swift in Sources */,
 				B3863AF22425A3A000FC9C86 /* OMConstraintsBox.swift in Sources */,
 				B3863B122425E3F800FC9C86 /* TutorialPageViewModel.swift in Sources */,
+				B35CE586243C253B00C5E1E6 /* TabViewModel.swift in Sources */,
 				B3863AFE2425D6AA00FC9C86 /* StartManager.swift in Sources */,
 				B361A0052431A74700DFDD39 /* LoginFlow.swift in Sources */,
 				B3CC55DE2426D11B0089278C /* LoginRouter.swift in Sources */,
 				B3863AFA2425A4F000FC9C86 /* OMSizeConstraintMaker.swift in Sources */,
 				B358F90324382736007C26F6 /* UIButton+Animation.swift in Sources */,
+				B35CE57E243C228500C5E1E6 /* MainViewController.swift in Sources */,
 				B3CC58D4242D62F90089278C /* FireStoreSaveable.swift in Sources */,
 				B366C64A243551A50045DC4D /* ProfileViewController.swift in Sources */,
 				B3863B142425E41000FC9C86 /* TutorialPageConfigurator.swift in Sources */,
 				B3CC55DC2426D10B0089278C /* LoginConfigurator.swift in Sources */,
 				B3863AE52425863C00FC9C86 /* UIWindow+Ext.swift in Sources */,
 				B3863B072425E29B00FC9C86 /* LoginOptionsViewController.swift in Sources */,
+				B35CE584243C22C100C5E1E6 /* MainConfigurator.swift in Sources */,
 				B358F9052438284B007C26F6 /* UIView+Gesture.swift in Sources */,
 				B3863ADE242584FB00FC9C86 /* DialogService.swift in Sources */,
 				B3863B092425E2B100FC9C86 /* LoginOptionsViewModel.swift in Sources */,
