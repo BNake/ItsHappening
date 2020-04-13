@@ -29,7 +29,7 @@ class MainViewModel: BaseViewModel {
                                           imageName: "home_tab",
                                           selectedImageName: "home_tab",
                                           tag: 3))
-        tabViewModels.append(TabViewModel(for: HomeViewModel.self,
+        tabViewModels.append(TabViewModel(for: ProfileViewModel.self,
                                           title: "Home",
                                           imageName: "home_tab",
                                           selectedImageName: "home_tab",
