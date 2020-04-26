@@ -62,7 +62,7 @@ class VerifyEmailViewModel: BaseViewModel {
                             self?.next()
                             return
                         }
-                        FirebaseAuthService.sharedInstance.reloadUserData()
+                        FirebaseAuthService.sharedInstance.reloadFirebaseAuthState()
                         self?.verificationListener.accept(message)
                     })
         

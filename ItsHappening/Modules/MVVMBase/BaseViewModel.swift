@@ -73,7 +73,7 @@ class BaseViewModel: NSObject, ViewModelProtocol {
     }
     
     deinit {
-        debugPrint("deinit \(self)")
+        debugPrint("deinit ---- \(self) ----")
     }
 
 }

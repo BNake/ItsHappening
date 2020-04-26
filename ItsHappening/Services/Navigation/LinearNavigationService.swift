@@ -18,7 +18,7 @@ class LinearNavigationService<N: HappeningNavigationController>: NavigationServi
     }
     
     deinit {
-        debugPrint("deinit \(self)")
+        debugPrint("deinit ---- \(self) ----")
     }
     
     func navigationController<T>() -> T where T: UIViewController {

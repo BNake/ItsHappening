@@ -36,14 +36,14 @@ class FirebaseFireStoreService<Type: FireStoreSaveable> {
     init(collectionName: String) {
         self.collectionName = collectionName
         db = Firestore.firestore()
-        debugPrint("init \(self)")
+        debugPrint("init ---- \(self) ----")
     }
     
     // MARK: deinit
     
     deinit {
         fireStoreListener?.remove()
-        debugPrint("deint \(self) listener")
+        debugPrint("deint ---- \(self) ---- listener")
     }
     
     // MARK: add and edit
@@ -83,12 +83,12 @@ class FirebaseFireStoreService<Type: FireStoreSaveable> {
                 failure(e)
             } else {
                 guard let query = data else {
-                    failure(DisplayError.init(code: .Not_Found, message: "Document Not Found"))
+                    failure(DisplayError.init(code: .Not_Found, message: "Documents Not Found"))
                     return
                 }
                 let types = self.composeTypes(from: query)
                 success(types)
-                debugPrint("received from firestore. [\(Type.self)] ");
+                debugPrint("received from firestore ---- [\(Type.self)] ----");
             }
         }
     }
@@ -110,11 +110,11 @@ class FirebaseFireStoreService<Type: FireStoreSaveable> {
                     return
                 }
                 guard let type = self.composeType(from: document) else {
-                    failure(DisplayError.init(code: .Parse_Error, message: "Can't parse document into \(Type.self)"))
+                    failure(DisplayError.init(code: .Parse_Error, message: "Can't parse document ---- \(Type.self) ----"))
                     return
                 }
                 success(type)
-                debugPrint("received from firestore. \(Type.self)");
+                debugPrint("received from firestore ---- \(Type.self) ----");
             }
         }
 
@@ -134,7 +134,7 @@ class FirebaseFireStoreService<Type: FireStoreSaveable> {
         
         let types = self.composeTypes(from: querySnap)
         docs.onNext(types)
-        debugPrint("published. [\(Type.self)]");
+        debugPrint("published ---- [\(Type.self)] ----");
         
     }
     
@@ -142,7 +142,7 @@ class FirebaseFireStoreService<Type: FireStoreSaveable> {
         
         guard let type = self.composeType(from: documentSnap) else { return }
         doc.onNext(type)
-        debugPrint("published. \(Type.self)");
+        debugPrint("published ---- \(Type.self) ----");
         
     }
 

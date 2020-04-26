@@ -34,21 +34,24 @@ class FirebaseAuthService: NSObject {
     }
     
     // MARK: init
+    
     private override init() {
         
         firebaseAuth = Auth.auth()
         finishedLoginFlow = UserDefaults.standard.bool(forKey: keyFinishedLoginFlow)
         
         super.init()
-        setHappeningCurrentUser()
-        debugPrint("init. \(self)")
+        debugPrint("init ---- \(self) ----")
     }
-    
-    private func setHappeningCurrentUser(completion: StatusCompletion? = nil) {
         
-        reloadUserData { [weak self] _ in
+    func loadUserData(completion: StatusCompletion? = nil) {
+        
+        reloadFirebaseAuthState { [weak self] _ in
 
-            guard let loggedInUserId = self?.firebaseAuth.currentUser?.uid else { completion?(.failed(errorCode: .DENIED)); return }
+            guard let loggedInUserId = self?.firebaseAuth.currentUser?.uid else {
+                completion?(.failed(errorCode: .DENIED))
+                return
+            }
             let usersTable = FirebaseFireStoreService<HappeningUser>(collectionName: "Users")
             
             // attempt to get user from Firestore
@@ -58,7 +61,12 @@ class FirebaseAuthService: NSObject {
                 completion?(.success)
                 
             }) { (error) in
-                guard let e = error as? DisplayError else { completion?(.failed(errorCode: .unknown)); return }
+                guard let e = error as? DisplayError else {
+                    self?.loggedInUser.accept(nil)
+                    self?.logout()
+                    completion?(.failed(errorCode: .unknown))
+                    return
+                }
                 completion?(.failed(errorCode: e.code))
             }
         }
@@ -126,7 +134,7 @@ class FirebaseAuthService: NSObject {
         return firebaseAuth.currentUser?.isEmailVerified ?? false
     }
     
-    func reloadUserData(completion: StatusCompletion? = nil) {
+    func reloadFirebaseAuthState(completion: StatusCompletion? = nil) {
         
         firebaseAuth.currentUser?.reload(completion: { (error) in
             if error != nil {
@@ -164,7 +172,7 @@ extension FirebaseAuthService: FUIAuthDelegate {
             return
         }
         
-        setHappeningCurrentUser { [weak self] (status) in
+        loadUserData { [weak self] (status) in
             self?.startFlow()
         }
     }
@@ -172,7 +180,7 @@ extension FirebaseAuthService: FUIAuthDelegate {
     private func startFlow() {
         let flow = LoginFlow()
         flow.finishAction =  { [weak self] in
-            self?.setHappeningCurrentUser()
+            self?.loadUserData()
             self?.postLoginfinishAction()
             self?.finishedLoginFlow = true
         }

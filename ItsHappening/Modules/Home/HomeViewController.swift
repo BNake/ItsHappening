@@ -10,10 +10,16 @@ import UIKit
 
 class HomeViewController: BaseViewController<HomeViewModel> {
     
-    let label: UILabel = {
-        let l = UILabel()
-        l.text = "asdfasdfasdf"
-        return l
+
+    private(set) lazy var tableView: MVVMTableView = {
+        let table = MVVMTableView(frame: .zero, style: .grouped)
+
+        table.backgroundColor = .clear
+        table.separatorStyle = .singleLine
+        table.showsVerticalScrollIndicator = false
+
+        table.register(SimpleTextCell.self, forCellReuseIdentifier: SimpleTextViewModel.className)
+        return table
     }()
     
     override func viewDidLoad() {
@@ -27,21 +33,18 @@ class HomeViewController: BaseViewController<HomeViewModel> {
     }
     
     override func setupUI() {
-        self.view.add(label)
+        self.view.add(tableView)
         
-        label.makeLayout {
-            $0.centerX.equalToSuperView()
-            $0.centerY.equalToSuperView()
+        tableView.makeLayout {
+            $0.top.equalToSuperView()
+            $0.bottom.equalToSuperView()
+            $0.leading.equalToSuperView()
+            $0.trailing.equalToSuperView()
         }
-        FirebaseAuthService.sharedInstance.loggedInUser.subscribe(onNext: { [weak self] (happeningUser) in
-            self?.label.text = happeningUser?.firstName ?? "logged out"
-        }).disposed(by: disposeBag)
-        label.addTapGestureRecognizer {
-            FirebaseAuthService.sharedInstance.logout()
-        }
+
     }
     
     override func setupBinding() {
-        
+        viewModel.sectionViewModelsDriver.drive(tableView.dataSourceMVVM).disposed(by: disposeBag)
     }
 }

@@ -119,7 +119,7 @@ class BaseRouter: RouterProtocol {
     }
     
     deinit {
-        debugPrint("deinit \(self)")
+        debugPrint("deinit ---- \(self) ----")
     }
     
     func showViewModel<T: ViewModelProtocol>(_ type: T.Type,

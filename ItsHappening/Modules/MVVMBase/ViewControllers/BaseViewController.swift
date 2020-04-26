@@ -50,7 +50,7 @@ class BaseViewController<T: ViewModelProtocol>: UIViewController, ViewController
     private(set) var viewModel: T!
     
     deinit {
-        debugPrint("deinit \(self)")
+        debugPrint("deinit ---- \(self) ----")
     }
     
     let closeBarButton: UIButton = {
@@ -187,7 +187,7 @@ class BasePageViewController<T: ViewModelProtocol>: UIPageViewController, ViewCo
     private(set) var viewModel: T!
     
     deinit {
-        debugPrint("deinit \(self)")
+        debugPrint("deinit ---- \(self) ----")
     }
     
     override func viewDidLoad() {
@@ -215,7 +215,7 @@ class BaseTabBarViewController<T: ViewModelProtocol>: HappeningTabBarController,
     private(set) var viewModel: T!
     
     deinit {
-        debugPrint("deinit \(self)")
+        debugPrint("deinit ---- \(self) ----")
     }
     
     override func viewDidLoad() {
@@ -243,7 +243,7 @@ class BaseTableViewController<T: ViewModelProtocol>: UITableViewController, View
     private(set) var viewModel: T!
     
     deinit {
-        debugPrint("deinit \(self)")
+        debugPrint("deinit ---- \(self) ----")
     }
     
     override func viewDidLoad() {
@@ -270,7 +270,7 @@ class BaseGoogleLoginOptionsViewController<T: ViewModelProtocol>: FUIAuthPickerV
     private(set) var viewModel: T!
     
     deinit {
-        debugPrint("deinit \(self)")
+        debugPrint("deinit ---- \(self) ----")
     }
     
     override func viewDidLoad() {

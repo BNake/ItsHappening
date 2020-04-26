@@ -40,7 +40,7 @@ class BaseFlow: FlowProtocol {
     }
     
     deinit {
-        debugPrint("deinit \(self)")
+        debugPrint("deinit --- \(self) ----")
     }
     
     func startFlow(router: RouterProtocol, data: ParameterProtocol?) {

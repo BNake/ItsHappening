@@ -30,13 +30,17 @@ class StartManager {
     func setupFirstVC() {
         
         setupUI()
-        startAllServices()
+        startAllServices { [weak self] in
+            self?.showFirstVC()
+        }
         
+    }
+    
+    private func showFirstVC() {
         let navVC = HappeningNavigationController()
         self.rootNavigationService = LinearNavigationService<HappeningNavigationController>(navigationController: navVC)
         
         if !FirebaseAuthService.sharedInstance.finishedLoginFlow {
-            debugPrint("Did not finished login in, forcing logout")
             FirebaseAuthService.sharedInstance.logout()
         }
         
@@ -47,10 +51,10 @@ class StartManager {
                                 LoginOptionsViewModel.self
         
         self.rootNavigationService.push(viewModel: startViewModel.self, flow: nil)
+        
         // set first vc as root vc
         UIApplication.shared.keyWindow?.rootViewController = self.rootNavigationService.navigationController()
         UIApplication.shared.keyWindow?.makeKeyAndVisible()
-        
     }
     
     private func setupUI() {
@@ -75,12 +79,12 @@ class StartManager {
         UINavigationBar.appearance().tintColor = ColorManager.hBlack
     }
     
-    func startAllServices() {
+    func startAllServices(completion: @escaping () -> Void) {
         
         // load user data if authorized
-//        if AuthManager.sharedInstance.isLogin() {
-//            UserSettingsManager.sharedInstance.loadUserData(failure: {_ in })
-//        }
+        FirebaseAuthService.sharedInstance.loadUserData { _ in
+            completion()
+        }
     }
     
 }
