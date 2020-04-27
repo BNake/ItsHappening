@@ -41,11 +41,14 @@ class ConfiguratorContainer {
         
         configurators[String(describing: LoginOptionsViewModel.self)] = LoginOptionsConfigurator()
         configurators[String(describing: TutorialPageViewModel.self)] = TutorialPageConfigurator()
-        configurators[String(describing: LoginViewModel.self)] = LoginConfigurator()
-        configurators[String(describing: VerifyEmailViewModel.self)] = VerifyEmailConfigurator()
-        configurators[String(describing: ProfileViewModel.self)] = ProfileConfigurator()
-        configurators[String(describing: HomeViewModel.self)] = HomeConfigurator()
-        configurators[String(describing: MainViewModel.self)] = MainConfigurator()
+        configurators[String(describing: LoginViewModel.self)]        = LoginConfigurator()
+        configurators[String(describing: VerifyEmailViewModel.self)]  = VerifyEmailConfigurator()
+        configurators[String(describing: ProfileViewModel.self)]      = ProfileConfigurator()
+        configurators[String(describing: HomeViewModel.self)]         = HomeConfigurator()
+        configurators[String(describing: MainViewModel.self)]         = MainConfigurator()
+        configurators[String(describing: AlertViewModel.self)]        = AlertConfigurator()
+        configurators[String(describing: ImagePickerViewModel.self)]  = ImagePickerConfigurator()
+
 
     }
     

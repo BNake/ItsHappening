@@ -12,6 +12,15 @@
 		7C9DC6BA96A9F3DEEE41160F /* Pods_ItsHappening_ItsHappeningUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B4141D784D177B039B1F19 /* Pods_ItsHappening_ItsHappeningUITests.framework */; };
 		B3209F1D245554BB00AC39F2 /* SimpleTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F1C245554BB00AC39F2 /* SimpleTextCell.swift */; };
 		B3209F1F2455553100AC39F2 /* SimpleTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F1E2455553100AC39F2 /* SimpleTextViewModel.swift */; };
+		B3209F222456293F00AC39F2 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F212456293F00AC39F2 /* FirebaseStorageService.swift */; };
+		B3209F27245650D700AC39F2 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F26245650D700AC39F2 /* AlertViewController.swift */; };
+		B3209F29245650E800AC39F2 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F28245650E800AC39F2 /* AlertViewModel.swift */; };
+		B3209F2B245650FE00AC39F2 /* AlertRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F2A245650FE00AC39F2 /* AlertRouter.swift */; };
+		B3209F2D2456511000AC39F2 /* AlertConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F2C2456511000AC39F2 /* AlertConfigurator.swift */; };
+		B3209F30245674A900AC39F2 /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F2F245674A900AC39F2 /* ImagePickerViewController.swift */; };
+		B3209F32245674E000AC39F2 /* ImagePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F31245674E000AC39F2 /* ImagePickerViewModel.swift */; };
+		B3209F34245674F600AC39F2 /* ImagePickerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F33245674F600AC39F2 /* ImagePickerRouter.swift */; };
+		B3209F362456750A00AC39F2 /* ImagePickerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F352456750A00AC39F2 /* ImagePickerConfigurator.swift */; };
 		B358F90124382701007C26F6 /* UIImageView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F90024382701007C26F6 /* UIImageView+Animation.swift */; };
 		B358F90324382736007C26F6 /* UIButton+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F90224382736007C26F6 /* UIButton+Animation.swift */; };
 		B358F9052438284B007C26F6 /* UIView+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F9042438284B007C26F6 /* UIView+Gesture.swift */; };
@@ -127,6 +136,15 @@
 		9203642E298549DE610DB260 /* Pods_ItsHappeningTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItsHappeningTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3209F1C245554BB00AC39F2 /* SimpleTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextCell.swift; sourceTree = "<group>"; };
 		B3209F1E2455553100AC39F2 /* SimpleTextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextViewModel.swift; sourceTree = "<group>"; };
+		B3209F212456293F00AC39F2 /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
+		B3209F26245650D700AC39F2 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		B3209F28245650E800AC39F2 /* AlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
+		B3209F2A245650FE00AC39F2 /* AlertRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertRouter.swift; sourceTree = "<group>"; };
+		B3209F2C2456511000AC39F2 /* AlertConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertConfigurator.swift; sourceTree = "<group>"; };
+		B3209F2F245674A900AC39F2 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
+		B3209F31245674E000AC39F2 /* ImagePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewModel.swift; sourceTree = "<group>"; };
+		B3209F33245674F600AC39F2 /* ImagePickerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerRouter.swift; sourceTree = "<group>"; };
+		B3209F352456750A00AC39F2 /* ImagePickerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerConfigurator.swift; sourceTree = "<group>"; };
 		B33B43A324537CE400BC65D4 /* ItsHappening.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ItsHappening.entitlements; sourceTree = "<group>"; };
 		B358F90024382701007C26F6 /* UIImageView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Animation.swift"; sourceTree = "<group>"; };
 		B358F90224382736007C26F6 /* UIButton+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Animation.swift"; sourceTree = "<group>"; };
@@ -284,6 +302,36 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
+		B3209F202456291500AC39F2 /* storage */ = {
+			isa = PBXGroup;
+			children = (
+				B3209F212456293F00AC39F2 /* FirebaseStorageService.swift */,
+			);
+			path = storage;
+			sourceTree = "<group>";
+		};
+		B3209F25245650BF00AC39F2 /* alert */ = {
+			isa = PBXGroup;
+			children = (
+				B3209F26245650D700AC39F2 /* AlertViewController.swift */,
+				B3209F28245650E800AC39F2 /* AlertViewModel.swift */,
+				B3209F2A245650FE00AC39F2 /* AlertRouter.swift */,
+				B3209F2C2456511000AC39F2 /* AlertConfigurator.swift */,
+			);
+			path = alert;
+			sourceTree = "<group>";
+		};
+		B3209F2E2456748E00AC39F2 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				B3209F2F245674A900AC39F2 /* ImagePickerViewController.swift */,
+				B3209F31245674E000AC39F2 /* ImagePickerViewModel.swift */,
+				B3209F33245674F600AC39F2 /* ImagePickerRouter.swift */,
+				B3209F352456750A00AC39F2 /* ImagePickerConfigurator.swift */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
 		B358F9082439566C007C26F6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +472,7 @@
 		B3863AA7242490A600FC9C86 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				B3209F202456291500AC39F2 /* storage */,
 				B3CC58EE242D8ADA0089278C /* auth */,
 				B3CC58ED242D8ACF0089278C /* database */,
 			);
@@ -463,6 +512,8 @@
 		B3863ABA242572FE00FC9C86 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B3209F2E2456748E00AC39F2 /* ImagePicker */,
+				B3209F25245650BF00AC39F2 /* alert */,
 				B35CE57C243C222900C5E1E6 /* Main */,
 				B358F9082439566C007C26F6 /* Home */,
 				B366C648243551810045DC4D /* Profile */,
@@ -940,11 +991,13 @@
 				B3863A7724247ECF00FC9C86 /* SceneDelegate.swift in Sources */,
 				B361A0242432777800DFDD39 /* Spinner.swift in Sources */,
 				B358F910243956B5007C26F6 /* HomeConfigurator.swift in Sources */,
+				B3209F34245674F600AC39F2 /* ImagePickerRouter.swift in Sources */,
 				B361A00A2431AF5C00DFDD39 /* VerifyEmailViewController.swift in Sources */,
 				B3CC55D42426C0DA0089278C /* BaseViewController.swift in Sources */,
 				B3863B002425D75E00FC9C86 /* ColorManager.swift in Sources */,
 				B3863B102425E3E400FC9C86 /* TutorialPageViewController.swift in Sources */,
 				B361A00E2431AF8100DFDD39 /* VerifyEmailRouter.swift in Sources */,
+				B3209F30245674A900AC39F2 /* ImagePickerViewController.swift in Sources */,
 				B3CC58D7242D6C780089278C /* Globals.swift in Sources */,
 				B366C64C243551C10045DC4D /* ProfileViewModel.swift in Sources */,
 				B375F09A243D9090004F799C /* SectionViewModel.swift in Sources */,
@@ -952,6 +1005,7 @@
 				B35CE588243C321200C5E1E6 /* TabNavigationService.swift in Sources */,
 				B3863AF42425A3CA00FC9C86 /* OMConstraintMaker.swift in Sources */,
 				B358F90C24395696007C26F6 /* HomeViewModel.swift in Sources */,
+				B3209F362456750A00AC39F2 /* ImagePickerConfigurator.swift in Sources */,
 				B3863AB924255A0300FC9C86 /* Coordinate.swift in Sources */,
 				B366C650243551E90045DC4D /* ProfileRouter.swift in Sources */,
 				B3CC58F2242DA7530089278C /* HappeningUser.swift in Sources */,
@@ -973,6 +1027,7 @@
 				B3863AC924257B0600FC9C86 /* Protocols.swift in Sources */,
 				B3863AAF24249F1000FC9C86 /* HappeningEvent.swift in Sources */,
 				B3863ACE24257C9F00FC9C86 /* BaseFlow.swift in Sources */,
+				B3209F222456293F00AC39F2 /* FirebaseStorageService.swift in Sources */,
 				B3209F1F2455553100AC39F2 /* SimpleTextViewModel.swift in Sources */,
 				B3863AC4242576A000FC9C86 /* NavigationServiceProtocol.swift in Sources */,
 				B3863AF62425A3F700FC9C86 /* OMBaseConstraintMaker.swift in Sources */,
@@ -983,22 +1038,26 @@
 				B35CE586243C253B00C5E1E6 /* TabViewModel.swift in Sources */,
 				B3863AFE2425D6AA00FC9C86 /* StartManager.swift in Sources */,
 				B361A0052431A74700DFDD39 /* LoginFlow.swift in Sources */,
+				B3209F32245674E000AC39F2 /* ImagePickerViewModel.swift in Sources */,
 				B3CC55DE2426D11B0089278C /* LoginRouter.swift in Sources */,
 				B3863AFA2425A4F000FC9C86 /* OMSizeConstraintMaker.swift in Sources */,
 				B358F90324382736007C26F6 /* UIButton+Animation.swift in Sources */,
 				B35CE57E243C228500C5E1E6 /* MainViewController.swift in Sources */,
 				B3CC58D4242D62F90089278C /* FireStoreSaveable.swift in Sources */,
+				B3209F2D2456511000AC39F2 /* AlertConfigurator.swift in Sources */,
 				B366C64A243551A50045DC4D /* ProfileViewController.swift in Sources */,
 				B3863B142425E41000FC9C86 /* TutorialPageConfigurator.swift in Sources */,
 				B3CC55DC2426D10B0089278C /* LoginConfigurator.swift in Sources */,
 				B3863AE52425863C00FC9C86 /* UIWindow+Ext.swift in Sources */,
 				B35CE5A5243D02A500C5E1E6 /* MVVMTableView.swift in Sources */,
 				B3863B072425E29B00FC9C86 /* LoginOptionsViewController.swift in Sources */,
+				B3209F29245650E800AC39F2 /* AlertViewModel.swift in Sources */,
 				B35CE584243C22C100C5E1E6 /* MainConfigurator.swift in Sources */,
 				B358F9052438284B007C26F6 /* UIView+Gesture.swift in Sources */,
 				B3863ADE242584FB00FC9C86 /* DialogService.swift in Sources */,
 				B3863B092425E2B100FC9C86 /* LoginOptionsViewModel.swift in Sources */,
 				B3CC58F0242DA6B70089278C /* FirebaseAuthService.swift in Sources */,
+				B3209F27245650D700AC39F2 /* AlertViewController.swift in Sources */,
 				B375F09F243D9162004F799C /* BaseTableViewCell.swift in Sources */,
 				B3863AFC2425A83300FC9C86 /* UINavigationController+Ext.swift in Sources */,
 				B358F90124382701007C26F6 /* UIImageView+Animation.swift in Sources */,
@@ -1012,6 +1071,7 @@
 				B3863AA9242490BD00FC9C86 /* FirebaseDatabaseService.swift in Sources */,
 				B3CC55E024271D410089278C /* RoundedSkyFloatingLabelTextField.swift in Sources */,
 				B3863B0D2425E2F100FC9C86 /* LoginOptionsRouter.swift in Sources */,
+				B3209F2B245650FE00AC39F2 /* AlertRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -52,13 +52,51 @@ class HomeViewModel: BaseViewModel {
     private func makeRows(from users: [HappeningUser]) -> [SimpleTextViewModel] {
         var rows: [SimpleTextViewModel] = []
         usersDisposedBag = DisposeBag()
-
+        let c = UIAlertAction(title: "Cancel", style: .cancel){ UIAlertAction in
+            
+        }
         for user in users {
-            let row = SimpleTextViewModel(title: user.firstName ?? "") {
-                debugPrint("\(user.email)")
+            let row = SimpleTextViewModel(title: user.firstName ?? "") { [weak self] in
+                
+                let cameraAction = UIAlertAction(title: "Camera", style: .default) { [weak self] UIAlertAction in
+                    
+                    if(UIImagePickerController .isSourceTypeAvailable(.camera)){
+                        
+                        self?.router.showImagePicker(imagePickerParams: ImagePickerParams(source: .camera, imageSelected: { image in
+                            var a = 0
+                        }))
+                    } else {
+                        
+                        self?.router.showAlert(alertParams: AlertParams(title: "Opps",
+                                                                        message: "No camera found on this device.",
+                                                                        style: .alert,
+                                                                        actionList: [c]))
+                    }
+                    
+                    
+                }
+                let gallaryAction = UIAlertAction(title: "Gallary", style: .default){ UIAlertAction in
+                    self?.router.showImagePicker(imagePickerParams: ImagePickerParams(source: .photoLibrary, imageSelected: { image in
+                        FirebaseStorageService.sharedInstance.saveImageToStorage(image: image, storagePath: "gogogo", success: { (url) in
+                            debugPrint(url)
+                        }) { (error) in
+                            
+                        }
+                    }))
+                }
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel){ UIAlertAction in
+                    
+                }
+                self?.router.showAlert(alertParams: AlertParams(title: user.firstName ?? "",
+                                                                message: "message",
+                                                                style: .alert,
+                                                                actionList: [cameraAction,
+                                                                             gallaryAction,
+                                                                             cancelAction]))
             }
             rows.append(row)
         }
         return rows
     }
+    
 }
