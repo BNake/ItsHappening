@@ -51,7 +51,7 @@ class FirebaseFireStoreService<Type: FireStoreSaveable> {
     public func set(document: Type, success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
         do {
             try db.collection(collectionName).document(document.id).setData(from: document) { error in
-                guard let e = error else { success(); debugPrint("\(Type.self) inserted"); return; }
+                guard let e = error else { success(); debugPrint("---- \(Type.self) ---- added"); return; }
                 failure(e)
             }
             

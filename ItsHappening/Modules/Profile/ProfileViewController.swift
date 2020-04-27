@@ -58,7 +58,7 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
     
     private let profileImageView: UIImageView = {
         let imageview = UIImageView()
-        imageview.contentMode = .scaleAspectFit
+        imageview.contentMode = .scaleToFill
         imageview.clipsToBounds = true
         imageview.isUserInteractionEnabled = true
         return imageview
@@ -201,6 +201,7 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
             $0.top.equalTo(titleLabel.sl.bottom).offset(size.height * 0.04)
             $0.height.equalTo(size.width * 0.33)
             $0.width.equalTo(size.width * 0.33)
+            self.profileImageView.layer.cornerRadius = size.width * 0.33 / 2
         }
         
         userNamefield.makeLayout {

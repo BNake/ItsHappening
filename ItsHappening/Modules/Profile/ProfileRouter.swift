@@ -10,4 +10,21 @@ import UIKit
 
 class ProfileRouter: BaseRouter {
     
+    func showAlert(alertParams: AlertParams) {
+        
+        present(viewModel: AlertViewModel.self,
+                with: alertParams,
+                style: .fullscreen,
+                completion: nil)
+        
+    }
+    
+    func showImagePicker(imagePickerParams: ImagePickerParams) {
+        
+        present(viewModel: ImagePickerViewModel.self,
+                with: imagePickerParams,
+                style: .fullscreen,
+                completion: nil)
+        
+    }
 }

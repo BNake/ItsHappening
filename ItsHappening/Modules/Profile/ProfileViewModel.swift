@@ -56,6 +56,8 @@ class ProfileViewModel: BaseViewModel {
     let firstName = BehaviorRelay<String>(value: "")
     let lastName = BehaviorRelay<String>(value: "")
     let phoneNumber = BehaviorRelay<String>(value: "")
+    let profileImageURL = BehaviorRelay<String>(value: "")
+
     
     // MARK: validation
     var isAllInputValid: Observable<Bool>
@@ -110,8 +112,8 @@ class ProfileViewModel: BaseViewModel {
             self?.breakFlow()
         }).disposed(by: disposeBag)
         
-        profileImageCommand.subscribe(onNext: { _ in
-            debugPrint("profile image clicked")
+        profileImageCommand.subscribe(onNext: { [weak self] _ in
+            self?.showImageSelectionOptions()
         }).disposed(by: disposeBag)
         
         saveCommand.subscribe(onNext: { [weak self] in
@@ -130,27 +132,87 @@ class ProfileViewModel: BaseViewModel {
     
     private func saveUserProfile() {
         
-        guard let userId = FirebaseAuthService.sharedInstance.firebaseAuth.currentUser?.uid else { debugPrint("not logged in"); return }
-        guard let email = FirebaseAuthService.sharedInstance.firebaseAuth.currentUser?.email else { debugPrint("no email"); return }
+        guard let userId = FirebaseAuthService.sharedInstance.firebaseAuth.currentUser?.uid else { debugPrint("not logged in")
+            return
+        }
+        
+        guard let email = FirebaseAuthService.sharedInstance.firebaseAuth.currentUser?.email else { debugPrint("no email")
+            return
+        }
 
         let user = HappeningUser(id: userId,
                                  username: username.value,
                                  email: email,
                                  firstName: firstName.value,
-                                 lastName: lastName.value)
-        let usersTable = FirebaseFireStoreService<HappeningUser>(collectionName: "Users")
+                                 lastName: lastName.value,
+                                 profileImageUrl: profileImageURL.value)
         
+        let usersTable = FirebaseFireStoreService<HappeningUser>(collectionName: "Users")
         usersTable.set(document: user, success: { [weak self] in
             self?.next()
-//            FirebaseAuthService.sharedInstance.setHappeningCurrentUser(success: {
-//                self?.finishFlow()
-//            }) { (error) in
-//                
-//            }
             
-        }) { (error) in
-            debugPrint(error)
+        }) { [weak self] (error) in
+            self?.showError(error: error)
         }
 
+    }
+    
+    private func saveProfileImage(image: UIImage) {
+        guard let userId = FirebaseAuthService.sharedInstance.firebaseAuth.currentUser?.uid else { debugPrint("not logged in")
+            return
+        }
+        
+        FirebaseStorageService.sharedInstance.saveImageToStorage(
+            image: image,
+            storagePath: "profileImages/\(userId)",
+            success: { [weak self] (url) in
+                self?.profileImageURL.accept(url)
+        }) { [weak self] (error) in
+            self?.showError(error: error)
+        }
+    }
+    
+    private func showError(error: Error) {
+        let ok = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default)
+        let alertParams = AlertParams(title: "Opps",
+                                      message: error.localizedDescription,
+                                      style: .alert,
+                                      actionList: [ok])
+        self.router.showAlert(alertParams: alertParams)
+    }
+    
+    private func showImageSelectionOptions() {
+        
+        // Action Buttons
+        
+        let camera = UIAlertAction(title: "Camera", style: .default) { [weak self] (action) in
+            self?.showSelectedImagePiker(source: .camera)
+        }
+        
+        let gallery = UIAlertAction(title: "Gallery", style: .default) { [weak self] (action) in
+            self?.showSelectedImagePiker(source: .photoLibrary)
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default)
+        
+        // alert configs
+        
+        let params = AlertParams(title: "Select Image",
+                                 message: "Options",
+                                 style: .actionSheet,
+                                 actionList: [gallery, camera, cancel])
+        
+        // show
+        
+        self.router.showAlert(alertParams: params)
+    }
+    
+    private func showSelectedImagePiker(source: UIImagePickerController.SourceType) {
+        let params = ImagePickerParams(source: source) { [weak self] (image) in
+            self?.profileImage.accept(image)
+            self?.saveProfileImage(image: image)
+        }
+        
+        self.router.showImagePicker(imagePickerParams: params)
     }
 }
