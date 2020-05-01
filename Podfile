@@ -13,10 +13,12 @@ target 'ItsHappening' do
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Database'
+  pod 'InstantSearchClient', '~> 7.0'
   pod 'SwiftLint'
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
   pod 'lottie-ios'
+  pod 'Kingfisher'
   pod 'RxGesture'
   pod "RxMKMapView"
   pod 'SkyFloatingLabelTextField', '~> 3.0'

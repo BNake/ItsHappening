@@ -23,5 +23,36 @@ struct HappeningUser: FireStoreSaveable {
     var idsOfUsersWhoRequestedToFollowYou: [String] = []
     var idsOfUsersWhoYouRequestedToFollow: [String] = []
     
+    func getFullName() -> String {
+        let first = firstName ?? ""
+        let last = lastName ?? ""
+        return "\(first) \(last)"
+    }
+    
+    init(dict: [String: AnyObject]) {
+        self.id = dict["id"] as? String ?? ""
+        self.email = dict["email"] as? String ?? ""
+        self.username = dict["username"] as? String ?? ""
+        self.firstName = dict["firstName"] as? String
+        self.lastName = dict["lastName"] as? String
+        self.profileImageUrl = dict["profileImageUrl"] as? String
+        
+    }
+    
+    init(id: String,
+         username: String,
+         email: String,
+         firstName: String?,
+         lastName: String?,
+         profileImageUrl: String?) {
+        
+        self.id = id
+        self.username = username
+        self.email = email
+        self.firstName = firstName
+        self.lastName = lastName
+        self.profileImageUrl = profileImageUrl
+        
+    }
     
 }

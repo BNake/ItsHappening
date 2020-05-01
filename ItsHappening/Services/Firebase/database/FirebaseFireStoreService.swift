@@ -10,6 +10,7 @@ import FirebaseFirestoreSwift
 import FirebaseFirestore
 import RxSwift
 import RxCocoa
+import InstantSearchClient
 
 class FirebaseFireStoreService<Type: FireStoreSaveable> {
     
@@ -18,7 +19,7 @@ class FirebaseFireStoreService<Type: FireStoreSaveable> {
     private let collectionName: String
     private let db: Firestore
     private var fireStoreListener: ListenerRegistration?
-    
+    private let disposeBag = DisposeBag()
     // MARK: rx
     
     private let docs = ReplaySubject<([Type])>.create(bufferSize: 1)
@@ -117,7 +118,6 @@ class FirebaseFireStoreService<Type: FireStoreSaveable> {
                 debugPrint("received from firestore ---- \(Type.self) ----");
             }
         }
-
     }
     
     public func observeCollection() -> Observable<[Type]> {
@@ -126,6 +126,203 @@ class FirebaseFireStoreService<Type: FireStoreSaveable> {
             self?.publish(querySnap: query)
         }
         return documents
+    }
+    
+    // query
+    
+    public func search(queryString: String,
+                       attributesToRetrieve: [String],
+                       maxCount: UInt,
+                       success: @escaping ([Type]) -> Void,
+                       failure: @escaping (Error) -> Void) {
+        
+        // guard let bundle = Bundle.main.bundleIdentifier else { return }
+        let searchClient = Client(appID: "589GLHB5XN", apiKey: "550af8e812f7b68cba827f095584453c")
+        let indexName = "\(collectionName)_dev"
+        let collectionIndex : Index = searchClient.index(withName: indexName)
+        
+        let query = Query()
+        query.hitsPerPage = maxCount
+        query.attributesToRetrieve = attributesToRetrieve
+        
+        query.query = queryString
+        collectionIndex.search(query) { (content, error) in
+            guard let content = content else {
+                if let error = error {
+                    failure(error)
+                }
+                success([])
+                return
+            }
+            
+            guard let hits = content["hits"] as? [[String: AnyObject]] else {
+                success([])
+                return
+            }
+            
+            var types:[Type] = []
+            hits.forEach({ (record) in
+                
+                let user = Type(dict: record)
+                types.append(user)
+            })
+            
+            success(types)
+        }
+        
+    }
+    
+    public func queryDocuments(queries: [FirestoryQuery],
+                               success: @escaping ([Type]) -> Void,
+                               failure: @escaping (Error) -> Void) {
+        
+        var observables: [BehaviorRelay<[Type]>] = []
+        for query in queries {
+            
+            let subject = BehaviorRelay<[Type]>(value: [])
+            observables.append(subject)
+            
+            switch query.queryOperator {
+            case .isEqualTo:
+                isEqualTo(query: query, success: { (types) in
+                    subject.accept(types)
+                }, failure: failure)
+            case .isLessThan:
+                isLessThan(query: query, success: { (types) in
+                    subject.accept(types)
+                }, failure: failure)
+            case .isLessThanOrEqualTo:
+                isLessThanOrEqualTo(query: query, success: { (types) in
+                    subject.accept(types)
+                }, failure: failure)
+            case .isGreaterThan:
+                isGreaterThan(query: query, success: { (types) in
+                    subject.accept(types)
+                }, failure: failure)
+            case .isGreaterThanOrEqualTo:
+                isGreaterThanOrEqualTo(query: query, success: { (types) in
+                    subject.accept(types)
+                }, failure: failure)
+            }
+        }
+        
+        Observable.combineLatest(observables).subscribe(onNext: { (arrayOfArrays) in
+            var combined: [Type] = []
+            arrayOfArrays.forEach { (array) in
+                combined.append(contentsOf: array)
+            }
+            var dict = [String: Type]()
+            _ = combined.map { (type) -> Void in
+                dict[type.id] = type
+            }
+            var unique = [Type]()
+            for item in dict {
+                unique.append(item.value)
+            }
+            success(unique)
+        }).disposed(by: disposeBag)
+        
+    }
+    
+    private func isEqualTo(query: FirestoryQuery,
+                           success: @escaping ([Type]) -> Void,
+                           failure: @escaping (Error) -> Void) {
+        
+        db.collection(collectionName)
+            .whereField(query.propertyName, isEqualTo: query.value).limit(to: query.limit)
+            .getDocuments { (data, error) in
+                if let e = error {
+                    failure(e)
+                } else {
+                    guard let query = data else {
+                        failure(DisplayError.init(code: .Not_Found, message: "Documents Not Found"))
+                        return
+                    }
+                    let types = self.composeTypes(from: query)
+                    success(types)
+                    debugPrint("received from firestore ---- [\(Type.self)] ----");
+                }
+        }
+    }
+    
+    private func isLessThan(query: FirestoryQuery,
+                            success: @escaping ([Type]) -> Void,
+                            failure: @escaping (Error) -> Void) {
+        db.collection(collectionName)
+            .whereField(query.propertyName, isLessThan: query.value).limit(to: query.limit)
+            .getDocuments { (data, error) in
+                if let e = error {
+                    failure(e)
+                } else {
+                    guard let query = data else {
+                        failure(DisplayError.init(code: .Not_Found, message: "Documents Not Found"))
+                        return
+                    }
+                    let types = self.composeTypes(from: query)
+                    success(types)
+                    debugPrint("received from firestore ---- [\(Type.self)] ----");
+                }
+        }
+    }
+    
+    private func isLessThanOrEqualTo(query: FirestoryQuery,
+                                     success: @escaping ([Type]) -> Void,
+                                     failure: @escaping (Error) -> Void) {
+        db.collection(collectionName)
+            .whereField(query.propertyName, isLessThanOrEqualTo: query.value).limit(to: query.limit)
+            .getDocuments { (data, error) in
+                if let e = error {
+                    failure(e)
+                } else {
+                    guard let query = data else {
+                        failure(DisplayError.init(code: .Not_Found, message: "Documents Not Found"))
+                        return
+                    }
+                    let types = self.composeTypes(from: query)
+                    success(types)
+                    debugPrint("received from firestore ---- [\(Type.self)] ----");
+                }
+        }
+    }
+    
+    private func isGreaterThan(query: FirestoryQuery,
+                               success: @escaping ([Type]) -> Void,
+                               failure: @escaping (Error) -> Void) {
+        db.collection(collectionName)
+            .whereField(query.propertyName, isGreaterThan: query.value).limit(to: query.limit)
+            .getDocuments { (data, error) in
+                if let e = error {
+                    failure(e)
+                } else {
+                    guard let query = data else {
+                        failure(DisplayError.init(code: .Not_Found, message: "Documents Not Found"))
+                        return
+                    }
+                    let types = self.composeTypes(from: query)
+                    success(types)
+                    debugPrint("received from firestore ---- [\(Type.self)] ----");
+                }
+        }
+    }
+    
+    private func isGreaterThanOrEqualTo(query: FirestoryQuery,
+                                        success: @escaping ([Type]) -> Void,
+                                        failure: @escaping (Error) -> Void) {
+        db.collection(collectionName)
+            .whereField(query.propertyName, isGreaterThanOrEqualTo: query.value).limit(to: query.limit)
+            .getDocuments { (data, error) in
+                if let e = error {
+                    failure(e)
+                } else {
+                    guard let query = data else {
+                        failure(DisplayError.init(code: .Not_Found, message: "Documents Not Found"))
+                        return
+                    }
+                    let types = self.composeTypes(from: query)
+                    success(types)
+                    debugPrint("received from firestore ---- [\(Type.self)] ----");
+                }
+        }
     }
     
     // MARK: publish

@@ -49,12 +49,12 @@ class HomeViewModel: BaseViewModel {
     }
     
     
-    private func makeRows(from users: [HappeningUser]) -> [SimpleTextViewModel] {
-        var rows: [SimpleTextViewModel] = []
+    private func makeRows(from users: [HappeningUser]) -> [SimpleTextCellViewModel] {
+        var rows: [SimpleTextCellViewModel] = []
         usersDisposedBag = DisposeBag()
         
         for user in users {
-            let row = SimpleTextViewModel(title: user.firstName ?? "") {}
+            let row = SimpleTextCellViewModel(title: user.firstName ?? "") {}
             rows.append(row)
         }
         return rows

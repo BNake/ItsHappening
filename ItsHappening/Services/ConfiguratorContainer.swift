@@ -48,7 +48,7 @@ class ConfiguratorContainer {
         configurators[String(describing: MainViewModel.self)]         = MainConfigurator()
         configurators[String(describing: AlertViewModel.self)]        = AlertConfigurator()
         configurators[String(describing: ImagePickerViewModel.self)]  = ImagePickerConfigurator()
-
+        configurators[String(describing: ContactViewModel.self)]      = ContactConfigurator()
 
     }
     

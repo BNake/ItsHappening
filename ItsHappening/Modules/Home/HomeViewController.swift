@@ -18,14 +18,9 @@ class HomeViewController: BaseViewController<HomeViewModel> {
         table.separatorStyle = .singleLine
         table.showsVerticalScrollIndicator = false
 
-        table.register(SimpleTextCell.self, forCellReuseIdentifier: SimpleTextViewModel.className)
+        table.register(SimpleTextCell.self, forCellReuseIdentifier: SimpleTextCellViewModel.className)
         return table
     }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = ColorManager.systemBackground
-    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -33,6 +28,7 @@ class HomeViewController: BaseViewController<HomeViewModel> {
     }
     
     override func setupUI() {
+        view.backgroundColor = ColorManager.systemBackground
         self.view.add(tableView)
         
         tableView.makeLayout {

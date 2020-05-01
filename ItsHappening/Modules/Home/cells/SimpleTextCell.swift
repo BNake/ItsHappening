@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SimpleTextCell: BaseTableViewCell<SimpleTextViewModel> {
+class SimpleTextCell: BaseTableViewCell<SimpleTextCellViewModel> {
 
     private let title: UILabel = {
         let label = UILabel()
@@ -41,4 +41,3 @@ class SimpleTextCell: BaseTableViewCell<SimpleTextViewModel> {
     }
 
 }
-

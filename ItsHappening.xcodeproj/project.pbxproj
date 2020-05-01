@@ -11,7 +11,7 @@
 		5261DCA529A624B23E0FB958 /* Pods_ItsHappening.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDA3FEAD72FD6D1AE8F929E7 /* Pods_ItsHappening.framework */; };
 		7C9DC6BA96A9F3DEEE41160F /* Pods_ItsHappening_ItsHappeningUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B4141D784D177B039B1F19 /* Pods_ItsHappening_ItsHappeningUITests.framework */; };
 		B3209F1D245554BB00AC39F2 /* SimpleTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F1C245554BB00AC39F2 /* SimpleTextCell.swift */; };
-		B3209F1F2455553100AC39F2 /* SimpleTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F1E2455553100AC39F2 /* SimpleTextViewModel.swift */; };
+		B3209F1F2455553100AC39F2 /* SimpleTextCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F1E2455553100AC39F2 /* SimpleTextCellViewModel.swift */; };
 		B3209F222456293F00AC39F2 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F212456293F00AC39F2 /* FirebaseStorageService.swift */; };
 		B3209F27245650D700AC39F2 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F26245650D700AC39F2 /* AlertViewController.swift */; };
 		B3209F29245650E800AC39F2 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F28245650E800AC39F2 /* AlertViewModel.swift */; };
@@ -21,6 +21,12 @@
 		B3209F32245674E000AC39F2 /* ImagePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F31245674E000AC39F2 /* ImagePickerViewModel.swift */; };
 		B3209F34245674F600AC39F2 /* ImagePickerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F33245674F600AC39F2 /* ImagePickerRouter.swift */; };
 		B3209F362456750A00AC39F2 /* ImagePickerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F352456750A00AC39F2 /* ImagePickerConfigurator.swift */; };
+		B3209F3924573BAE00AC39F2 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F3824573BAE00AC39F2 /* ContactViewController.swift */; };
+		B3209F3B24573BBB00AC39F2 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F3A24573BBB00AC39F2 /* ContactViewModel.swift */; };
+		B3209F3D24573BC500AC39F2 /* ContactRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F3C24573BC500AC39F2 /* ContactRouter.swift */; };
+		B3209F3F24573BD700AC39F2 /* ContactConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F3E24573BD700AC39F2 /* ContactConfigurator.swift */; };
+		B3209F422457495000AC39F2 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F412457495000AC39F2 /* ContactCell.swift */; };
+		B3209F442457495C00AC39F2 /* ContactCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F432457495C00AC39F2 /* ContactCellViewModel.swift */; };
 		B358F90124382701007C26F6 /* UIImageView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F90024382701007C26F6 /* UIImageView+Animation.swift */; };
 		B358F90324382736007C26F6 /* UIButton+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F90224382736007C26F6 /* UIButton+Animation.swift */; };
 		B358F9052438284B007C26F6 /* UIView+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B358F9042438284B007C26F6 /* UIView+Gesture.swift */; };
@@ -95,6 +101,7 @@
 		B3863B102425E3E400FC9C86 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3863B0F2425E3E400FC9C86 /* TutorialPageViewController.swift */; };
 		B3863B122425E3F800FC9C86 /* TutorialPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3863B112425E3F800FC9C86 /* TutorialPageViewModel.swift */; };
 		B3863B142425E41000FC9C86 /* TutorialPageConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3863B132425E41000FC9C86 /* TutorialPageConfigurator.swift */; };
+		B3A72AA524592111004123FC /* FirestoryQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A72AA424592111004123FC /* FirestoryQuery.swift */; };
 		B3CC55D42426C0DA0089278C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC55D32426C0DA0089278C /* BaseViewController.swift */; };
 		B3CC55D82426D0E20089278C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC55D72426D0E20089278C /* LoginViewController.swift */; };
 		B3CC55DA2426D0F80089278C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC55D92426D0F80089278C /* LoginViewModel.swift */; };
@@ -135,7 +142,7 @@
 		69F80B19C3D9C16298A61466 /* Pods-ItsHappening-ItsHappeningUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsHappening-ItsHappeningUITests.release.xcconfig"; path = "Target Support Files/Pods-ItsHappening-ItsHappeningUITests/Pods-ItsHappening-ItsHappeningUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9203642E298549DE610DB260 /* Pods_ItsHappeningTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItsHappeningTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3209F1C245554BB00AC39F2 /* SimpleTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextCell.swift; sourceTree = "<group>"; };
-		B3209F1E2455553100AC39F2 /* SimpleTextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextViewModel.swift; sourceTree = "<group>"; };
+		B3209F1E2455553100AC39F2 /* SimpleTextCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextCellViewModel.swift; sourceTree = "<group>"; };
 		B3209F212456293F00AC39F2 /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
 		B3209F26245650D700AC39F2 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		B3209F28245650E800AC39F2 /* AlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
@@ -145,6 +152,12 @@
 		B3209F31245674E000AC39F2 /* ImagePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewModel.swift; sourceTree = "<group>"; };
 		B3209F33245674F600AC39F2 /* ImagePickerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerRouter.swift; sourceTree = "<group>"; };
 		B3209F352456750A00AC39F2 /* ImagePickerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerConfigurator.swift; sourceTree = "<group>"; };
+		B3209F3824573BAE00AC39F2 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		B3209F3A24573BBB00AC39F2 /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
+		B3209F3C24573BC500AC39F2 /* ContactRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRouter.swift; sourceTree = "<group>"; };
+		B3209F3E24573BD700AC39F2 /* ContactConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactConfigurator.swift; sourceTree = "<group>"; };
+		B3209F412457495000AC39F2 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		B3209F432457495C00AC39F2 /* ContactCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCellViewModel.swift; sourceTree = "<group>"; };
 		B33B43A324537CE400BC65D4 /* ItsHappening.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ItsHappening.entitlements; sourceTree = "<group>"; };
 		B358F90024382701007C26F6 /* UIImageView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Animation.swift"; sourceTree = "<group>"; };
 		B358F90224382736007C26F6 /* UIButton+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Animation.swift"; sourceTree = "<group>"; };
@@ -226,6 +239,7 @@
 		B3863B0F2425E3E400FC9C86 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		B3863B112425E3F800FC9C86 /* TutorialPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageViewModel.swift; sourceTree = "<group>"; };
 		B3863B132425E41000FC9C86 /* TutorialPageConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageConfigurator.swift; sourceTree = "<group>"; };
+		B3A72AA424592111004123FC /* FirestoryQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoryQuery.swift; sourceTree = "<group>"; };
 		B3CC55D32426C0DA0089278C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B3CC55D72426D0E20089278C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B3CC55D92426D0F80089278C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -297,7 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				B3209F1C245554BB00AC39F2 /* SimpleTextCell.swift */,
-				B3209F1E2455553100AC39F2 /* SimpleTextViewModel.swift */,
+				B3209F1E2455553100AC39F2 /* SimpleTextCellViewModel.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -330,6 +344,27 @@
 				B3209F352456750A00AC39F2 /* ImagePickerConfigurator.swift */,
 			);
 			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		B3209F372457393E00AC39F2 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				B3209F402457493F00AC39F2 /* cells */,
+				B3209F3824573BAE00AC39F2 /* ContactViewController.swift */,
+				B3209F3A24573BBB00AC39F2 /* ContactViewModel.swift */,
+				B3209F3C24573BC500AC39F2 /* ContactRouter.swift */,
+				B3209F3E24573BD700AC39F2 /* ContactConfigurator.swift */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
+		B3209F402457493F00AC39F2 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				B3209F412457495000AC39F2 /* ContactCell.swift */,
+				B3209F432457495C00AC39F2 /* ContactCellViewModel.swift */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 		B358F9082439566C007C26F6 /* Home */ = {
@@ -512,6 +547,7 @@
 		B3863ABA242572FE00FC9C86 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B3209F372457393E00AC39F2 /* Contact */,
 				B3209F2E2456748E00AC39F2 /* ImagePicker */,
 				B3209F25245650BF00AC39F2 /* alert */,
 				B35CE57C243C222900C5E1E6 /* Main */,
@@ -673,6 +709,7 @@
 			children = (
 				B3CC58CE242D0FF90089278C /* FirebaseFireStoreService.swift */,
 				B3863AA8242490BD00FC9C86 /* FirebaseDatabaseService.swift */,
+				B3A72AA424592111004123FC /* FirestoryQuery.swift */,
 			);
 			path = database;
 			sourceTree = "<group>";
@@ -992,6 +1029,8 @@
 				B361A0242432777800DFDD39 /* Spinner.swift in Sources */,
 				B358F910243956B5007C26F6 /* HomeConfigurator.swift in Sources */,
 				B3209F34245674F600AC39F2 /* ImagePickerRouter.swift in Sources */,
+				B3209F3F24573BD700AC39F2 /* ContactConfigurator.swift in Sources */,
+				B3209F442457495C00AC39F2 /* ContactCellViewModel.swift in Sources */,
 				B361A00A2431AF5C00DFDD39 /* VerifyEmailViewController.swift in Sources */,
 				B3CC55D42426C0DA0089278C /* BaseViewController.swift in Sources */,
 				B3863B002425D75E00FC9C86 /* ColorManager.swift in Sources */,
@@ -1004,6 +1043,7 @@
 				B35CE582243C22AD00C5E1E6 /* MainRouter.swift in Sources */,
 				B35CE588243C321200C5E1E6 /* TabNavigationService.swift in Sources */,
 				B3863AF42425A3CA00FC9C86 /* OMConstraintMaker.swift in Sources */,
+				B3209F422457495000AC39F2 /* ContactCell.swift in Sources */,
 				B358F90C24395696007C26F6 /* HomeViewModel.swift in Sources */,
 				B3209F362456750A00AC39F2 /* ImagePickerConfigurator.swift in Sources */,
 				B3863AB924255A0300FC9C86 /* Coordinate.swift in Sources */,
@@ -1018,17 +1058,21 @@
 				B3863AC2242575BE00FC9C86 /* HappeningNavigationController.swift in Sources */,
 				B35CE580243C229700C5E1E6 /* MainViewModel.swift in Sources */,
 				B3863AC724257A2700FC9C86 /* BaseViewModel.swift in Sources */,
+				B3209F3D24573BC500AC39F2 /* ContactRouter.swift in Sources */,
+				B3209F3924573BAE00AC39F2 /* ContactViewController.swift in Sources */,
 				B3863ADA2425813900FC9C86 /* BaseRouter.swift in Sources */,
 				B3863B022425D7EF00FC9C86 /* UIColor+Ext.swift in Sources */,
 				B3863AE3242585BE00FC9C86 /* UIView+Ext.swift in Sources */,
 				B3863ABE2425752A00FC9C86 /* LinearNavigationService.swift in Sources */,
 				B3CC55DA2426D0F80089278C /* LoginViewModel.swift in Sources */,
+				B3209F3B24573BBB00AC39F2 /* ContactViewModel.swift in Sources */,
 				B358F90A2439567F007C26F6 /* HomeViewController.swift in Sources */,
 				B3863AC924257B0600FC9C86 /* Protocols.swift in Sources */,
 				B3863AAF24249F1000FC9C86 /* HappeningEvent.swift in Sources */,
 				B3863ACE24257C9F00FC9C86 /* BaseFlow.swift in Sources */,
 				B3209F222456293F00AC39F2 /* FirebaseStorageService.swift in Sources */,
-				B3209F1F2455553100AC39F2 /* SimpleTextViewModel.swift in Sources */,
+				B3209F1F2455553100AC39F2 /* SimpleTextCellViewModel.swift in Sources */,
+				B3A72AA524592111004123FC /* FirestoryQuery.swift in Sources */,
 				B3863AC4242576A000FC9C86 /* NavigationServiceProtocol.swift in Sources */,
 				B3863AF62425A3F700FC9C86 /* OMBaseConstraintMaker.swift in Sources */,
 				B361A0102431AF9500DFDD39 /* VerifyEmailConfigurator.swift in Sources */,

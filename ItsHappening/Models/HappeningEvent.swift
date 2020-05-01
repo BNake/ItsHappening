@@ -47,4 +47,27 @@ struct HappeningEvent: FireStoreSaveable {
        
     }
     
+    init(dict: [String: AnyObject]) {
+        self.id = dict["id"] as? String ?? ""
+        self.ownerID = dict["ownerID"] as? String ?? ""
+        self.accessType = dict["accessType"] as? EventAccessType ?? .accessPrivate
+        
+        let streetAddress = dict["streetAddress"] as? String ?? ""
+        let city = dict["city"] as? String ?? ""
+        let state = dict["state"] as? String ?? ""
+        let zipCode = dict["zipCode"] as? String ?? ""
+        let lat = dict["latitude"] as? Double ?? 0.0
+        let long = dict["streetAddress"] as? Double ?? 0.0
+        let coordinate = Coordinate(latitude: lat, longitude: long)
+        
+        let address = Address(streetAddress: streetAddress,
+                              city: city,
+                              state: state,
+                              zipCode: zipCode,
+                              coordinate: coordinate)
+        self.address = address
+        self.imageURL = dict["imageURL"] as? String
+        
+    }
+    
 }

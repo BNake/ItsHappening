@@ -10,4 +10,5 @@ import Foundation
 
 protocol FireStoreSaveable: Codable {
     var id: String { get }
+    init(dict: [String: AnyObject])
 }

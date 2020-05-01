@@ -9,7 +9,7 @@
 import RxSwift
 import RxCocoa
 
-class SimpleTextViewModel: RowViewModel {
+class SimpleTextCellViewModel: RowViewModel {
 
     let title: BehaviorRelay<String>
     init(title: String, selection: Action? = nil) {
