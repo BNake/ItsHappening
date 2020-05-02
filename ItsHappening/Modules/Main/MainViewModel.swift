@@ -24,8 +24,8 @@ class MainViewModel: BaseViewModel {
     
     func setupViewModels() {
         tabViewModels.removeAll()
-        tabViewModels.append(TabViewModel(for: HomeViewModel.self,
-                                          title: "Home",
+        tabViewModels.append(TabViewModel(for: ContactViewModel.self,
+                                          title: "Contact",
                                           imageName: "home_tab",
                                           selectedImageName: "home_tab",
                                           tag: 3))

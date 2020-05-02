@@ -136,7 +136,11 @@ class FirebaseAuthService: NSObject {
     
     func reloadFirebaseAuthState(completion: StatusCompletion? = nil) {
         
-        firebaseAuth.currentUser?.reload(completion: { (error) in
+        guard let user = firebaseAuth.currentUser else {
+            completion?(.failed(errorCode: .DENIED))
+            return
+        }
+        user.reload(completion: { (error) in
             if error != nil {
                 completion?(.failed(errorCode: .unknown))
                 return

@@ -10,6 +10,9 @@
 		2C67E9EAC2905426BC24B3FD /* Pods_ItsHappeningTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9203642E298549DE610DB260 /* Pods_ItsHappeningTests.framework */; };
 		5261DCA529A624B23E0FB958 /* Pods_ItsHappening.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDA3FEAD72FD6D1AE8F929E7 /* Pods_ItsHappening.framework */; };
 		7C9DC6BA96A9F3DEEE41160F /* Pods_ItsHappening_ItsHappeningUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B4141D784D177B039B1F19 /* Pods_ItsHappening_ItsHappeningUITests.framework */; };
+		B313AD08245E0CE600C95F6F /* SegmentControlContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313AD07245E0CE600C95F6F /* SegmentControlContainerView.swift */; };
+		B313AD0A245E112300C95F6F /* ZeroSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313AD09245E112300C95F6F /* ZeroSectionHeaderView.swift */; };
+		B313AD0D245E116F00C95F6F /* SettingsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313AD0C245E116F00C95F6F /* SettingsSectionView.swift */; };
 		B3209F1D245554BB00AC39F2 /* SimpleTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F1C245554BB00AC39F2 /* SimpleTextCell.swift */; };
 		B3209F1F2455553100AC39F2 /* SimpleTextCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F1E2455553100AC39F2 /* SimpleTextCellViewModel.swift */; };
 		B3209F222456293F00AC39F2 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3209F212456293F00AC39F2 /* FirebaseStorageService.swift */; };
@@ -141,6 +144,9 @@
 		616E54BEE5E938C9F4C1171E /* Pods-ItsHappening-ItsHappeningUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsHappening-ItsHappeningUITests.debug.xcconfig"; path = "Target Support Files/Pods-ItsHappening-ItsHappeningUITests/Pods-ItsHappening-ItsHappeningUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		69F80B19C3D9C16298A61466 /* Pods-ItsHappening-ItsHappeningUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItsHappening-ItsHappeningUITests.release.xcconfig"; path = "Target Support Files/Pods-ItsHappening-ItsHappeningUITests/Pods-ItsHappening-ItsHappeningUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9203642E298549DE610DB260 /* Pods_ItsHappeningTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItsHappeningTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B313AD07245E0CE600C95F6F /* SegmentControlContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlContainerView.swift; sourceTree = "<group>"; };
+		B313AD09245E112300C95F6F /* ZeroSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroSectionHeaderView.swift; sourceTree = "<group>"; };
+		B313AD0C245E116F00C95F6F /* SettingsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSectionView.swift; sourceTree = "<group>"; };
 		B3209F1C245554BB00AC39F2 /* SimpleTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextCell.swift; sourceTree = "<group>"; };
 		B3209F1E2455553100AC39F2 /* SimpleTextCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextCellViewModel.swift; sourceTree = "<group>"; };
 		B3209F212456293F00AC39F2 /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
@@ -305,6 +311,14 @@
 				9203642E298549DE610DB260 /* Pods_ItsHappeningTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B313AD0B245E116000C95F6F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B313AD0C245E116F00C95F6F /* SettingsSectionView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		B3209F1B2455548800AC39F2 /* cells */ = {
@@ -547,6 +561,7 @@
 		B3863ABA242572FE00FC9C86 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B313AD0B245E116000C95F6F /* Settings */,
 				B3209F372457393E00AC39F2 /* Contact */,
 				B3209F2E2456748E00AC39F2 /* ImagePicker */,
 				B3209F25245650BF00AC39F2 /* alert */,
@@ -595,6 +610,8 @@
 				B3863B042425E20A00FC9C86 /* RoundedButton.swift */,
 				B3CC55DF24271D410089278C /* RoundedSkyFloatingLabelTextField.swift */,
 				B361A0232432777800DFDD39 /* Spinner.swift */,
+				B313AD07245E0CE600C95F6F /* SegmentControlContainerView.swift */,
+				B313AD09245E112300C95F6F /* ZeroSectionHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1041,6 +1058,7 @@
 				B366C64C243551C10045DC4D /* ProfileViewModel.swift in Sources */,
 				B375F09A243D9090004F799C /* SectionViewModel.swift in Sources */,
 				B35CE582243C22AD00C5E1E6 /* MainRouter.swift in Sources */,
+				B313AD0A245E112300C95F6F /* ZeroSectionHeaderView.swift in Sources */,
 				B35CE588243C321200C5E1E6 /* TabNavigationService.swift in Sources */,
 				B3863AF42425A3CA00FC9C86 /* OMConstraintMaker.swift in Sources */,
 				B3209F422457495000AC39F2 /* ContactCell.swift in Sources */,
@@ -1051,6 +1069,7 @@
 				B3CC58F2242DA7530089278C /* HappeningUser.swift in Sources */,
 				B3863ACB24257BB700FC9C86 /* ConfiguratorContainer.swift in Sources */,
 				B3863B052425E20A00FC9C86 /* RoundedButton.swift in Sources */,
+				B313AD08245E0CE600C95F6F /* SegmentControlContainerView.swift in Sources */,
 				B375F0A1243D91B6004F799C /* BaseSectionView.swift in Sources */,
 				B3863AE12425855000FC9C86 /* DialogAction.swift in Sources */,
 				B3CC58CF242D0FFA0089278C /* FirebaseFireStoreService.swift in Sources */,
@@ -1108,6 +1127,7 @@
 				B366C64E243551D60045DC4D /* ProfileConfigurator.swift in Sources */,
 				B3CC5910242F12B90089278C /* FirebaseUIPickerViewController.swift in Sources */,
 				B3209F1D245554BB00AC39F2 /* SimpleTextCell.swift in Sources */,
+				B313AD0D245E116F00C95F6F /* SettingsSectionView.swift in Sources */,
 				B375F09C243D90EE004F799C /* RowViewModel.swift in Sources */,
 				B3863B0B2425E2D700FC9C86 /* LoginOptionsConfigurator.swift in Sources */,
 				B3863ADC2425828000FC9C86 /* DisplayError.swift in Sources */,
