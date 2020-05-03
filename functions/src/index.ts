@@ -32,7 +32,7 @@ export const sendCollectionToAlgolia = functions.https.onRequest(async (req, res
         // Essentially, you want your records to contain any information that facilitates search,
         // display, filtering, or relevance. Otherwise, you can leave it out.
         const record = {
-            objectID: doc.id,
+            			 id: doc.id,
             firstName: document.firstName,
 			       lastName: document.lastName,
 			       username: document.username
