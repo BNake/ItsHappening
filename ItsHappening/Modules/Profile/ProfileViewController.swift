@@ -251,19 +251,38 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
             $0.trailing.equalTo(view.sl.trailing).offset(16)
             $0.height.equalTo(50)
         }
+        
     }
     
     override func setupBinding() {
         
+        //
         // MARK: apearance
+        //
         viewModel.logoImageDriver.drive(logoImageView.rx.image).disposed(by: disposeBag)
         viewModel.profileImageDriver.drive(profileImageView.rx.image).disposed(by: disposeBag)
         viewModel.logoTextDriver.drive(logoLabel.rx.text).disposed(by: disposeBag)
         viewModel.titleTextDriver.drive(titleLabel.rx.text).disposed(by: disposeBag)
         viewModel.saveButtonTextDriver.drive(saveButton.rx.title()).disposed(by: disposeBag)
         viewModel.termsTextDriver.drive(termsConditiosTextView.rx.attributedText).disposed(by: disposeBag)
+        viewModel.firstName.asDriver().drive(firstNamefield.rx.text).disposed(by: disposeBag)
+        viewModel.lastName.asDriver().drive(lastNamefield.rx.text).disposed(by: disposeBag)
+        viewModel.phoneNumber.asDriver().drive(phoneNumberfield.rx.text).disposed(by: disposeBag)
+
+        if let url = FirebaseAuthService.sharedInstance.firebaseAuth.currentUser?.photoURL {
+            viewModel.profileImageURL.accept(url.absoluteString)
+            profileImageView.kf.setImage(
+                with: url,
+                placeholder: UIImage(named: "add_profile_image")!,
+                options: [
+                    .transition(.fade(0.6)),
+                    .cacheOriginalImage
+            ])
+        }
         
-        //MARK: input
+        //
+        // MARK: input
+        //
         userNamefield.rx.text.orEmpty.asDriver().drive(viewModel.username).disposed(by: disposeBag)
         firstNamefield.rx.text.orEmpty.asDriver().drive(viewModel.firstName).disposed(by: disposeBag)
         lastNamefield.rx.text.orEmpty.asDriver().drive(viewModel.lastName).disposed(by: disposeBag)
@@ -272,7 +291,9 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
         //MARK: validation
         // viewModel.isAllInputValid.asDriver(onErrorJustReturn: false).drive(sa)
 
+        //
         // MARK: action
+        //
         closeBarButton.rx.tap.bind(to: viewModel.closeCommand).disposed(by: disposeBag)
         saveButton.rx.tap.bind(to: viewModel.saveCommand).disposed(by: disposeBag)
         profileImageView.addTapGestureRecognizer {

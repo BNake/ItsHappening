@@ -88,6 +88,20 @@ class ProfileViewModel: BaseViewModel {
             termsAndServiceAttributedString.addAttributes(linkAttributes, range: prange)
         }
         
+        if let name = FirebaseAuthService.sharedInstance.firebaseAuth.currentUser?.displayName {
+            let parts = name.split(separator: " ")
+            if parts.count > 1 {
+                let first = String(parts[0])
+                let last = String(parts[1])
+                firstName.accept(first)
+                lastName.accept(last)
+            }
+        }
+        
+        if let phone = FirebaseAuthService.sharedInstance.firebaseAuth.currentUser?.phoneNumber {
+            phoneNumber.accept(phone)
+        }
+                
         // MARK: validation
         isAllInputValid = Observable.combineLatest(username.asObservable(),
                                            firstName.asObservable(),
