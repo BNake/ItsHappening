@@ -49,9 +49,6 @@ class ContactViewController: BaseViewController<ContactViewModel> {
         self.view.add(searchBar, segmentControlView, tableView)
         let size = UIScreen.main.bounds
         
-        view.addTapGestureRecognizer {
-            FirebaseAuthService.sharedInstance.logout()
-        }
         searchBar.makeLayout {
             $0.top.equalToSuperView().offset(safeAreaTopHeight)
             $0.leading.equalToSuperView()
@@ -91,11 +88,13 @@ class ContactViewController: BaseViewController<ContactViewModel> {
             }.drive(viewModel.segmentControlChanged).disposed(by: disposeBag)
         
         FirebaseAuthService.sharedInstance.loggedInUser.bind { [weak self] (loggedInUser) in
+            guard let self = self else { return }
             guard loggedInUser != nil else {
-                self?.hideSegmentedControl()
+                self.viewModel.segmentControlChanged.accept(.all)
+                self.hideSegmentedControl()
                 return
             }
-            self?.showSegmentedControl()
+            self.showSegmentedControl()
         }.disposed(by: disposeBag)
     }
     
