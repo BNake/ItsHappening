@@ -62,6 +62,42 @@ class FirebaseFireStoreService<Type: FireStoreSaveable> {
         }
     }
     
+    public func updateArray(document: Type,
+                            array: String,
+                            newValue: Any,
+                            success: @escaping () -> Void,
+                            failure: @escaping (Error) -> Void) {
+        
+        db.collection(collectionName).document(document.id)
+                .updateData([ array : FieldValue.arrayUnion([newValue]) ],
+                            completion: { (error) in
+                                guard let e = error else {
+                                    success()
+                                    debugPrint("---- \(Type.self) ---- added")
+                                    return
+                                }
+                                failure(e)
+                            })
+    }
+    
+    public func removeFromArray(document: Type,
+                            array: String,
+                            newValue: Any,
+                            success: @escaping () -> Void,
+                            failure: @escaping (Error) -> Void) {
+        
+        db.collection(collectionName).document(document.id)
+                .updateData([ array : FieldValue.arrayRemove([newValue])],
+                            completion: { (error) in
+                                guard let e = error else {
+                                    success()
+                                    debugPrint("---- \(Type.self) ---- added")
+                                    return
+                                }
+                                failure(e)
+                            })
+    }
+    
     // MARK: delete
     
     public func delete(document: Type, success: @escaping () -> Void, failure: @escaping (Error) -> Void) {

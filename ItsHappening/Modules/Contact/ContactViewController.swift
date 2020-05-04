@@ -18,7 +18,7 @@ class ContactViewController: BaseViewController<ContactViewModel> {
     
     private var segmentedControllHeight: OMOffsetConstraintChanger?
     private let segmentControlView: SegmentControlContainerView = {
-        let control = UISegmentedControl(items: ["All", "Friends"])
+        let control = UISegmentedControl(items: ["All", "Following", "Pending"])
         control.tintColor = UIColor.init(hexrgb: 0x1b1b1b)
         control.selectedSegmentIndex = 0
         let view = SegmentControlContainerView(segmentControl: control)
@@ -72,9 +72,27 @@ class ContactViewController: BaseViewController<ContactViewModel> {
     }
     
     override func setupBinding() {
-        viewModel.sectionViewModelsDriver.drive(tableView.dataSourceMVVM).disposed(by: disposeBag)
-        searchBar.rx.text.orEmpty.asDriver().drive(viewModel.searchText).disposed(by: disposeBag)
         
+        //
+        // MARK: apearance
+        //
+        viewModel.sectionViewModelsDriver
+            .drive(tableView.dataSourceMVVM).disposed(by: disposeBag)
+        viewModel.segmentedContolPositionDriver
+            .drive(segmentControlView.controlView.rx.selectedSegmentIndex).disposed(by: disposeBag)
+        viewModel.segmentedContolVisibilityDriver.asObservable().subscribe(onNext: { [weak self] (show) in
+                guard let self = self else { return }
+                if show {
+                    self.showSegmentedControl()
+                } else {
+                    self.hideSegmentedControl()
+                }
+            }).disposed(by: disposeBag)
+        
+        //
+        // MARK: input
+        //
+        searchBar.rx.text.orEmpty.asDriver().drive(viewModel.searchText).disposed(by: disposeBag)
         segmentControlView.controlView.rx.value.asDriver()
             .map { (status) -> ContactViewModel.SegmentControl in
                 switch status {
@@ -82,20 +100,12 @@ class ContactViewController: BaseViewController<ContactViewModel> {
                     return .all
                 case 1:
                     return .friends
+                case 2:
+                    return .pending
                 default:
                     return .all
                 }
             }.drive(viewModel.segmentControlChanged).disposed(by: disposeBag)
-        
-        FirebaseAuthService.sharedInstance.loggedInUser.bind { [weak self] (loggedInUser) in
-            guard let self = self else { return }
-            guard loggedInUser != nil else {
-                self.viewModel.segmentControlChanged.accept(.all)
-                self.hideSegmentedControl()
-                return
-            }
-            self.showSegmentedControl()
-        }.disposed(by: disposeBag)
     }
     
     private func hideSegmentedControl() {

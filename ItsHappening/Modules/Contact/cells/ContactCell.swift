@@ -43,12 +43,21 @@ class ContactCell: BaseTableViewCell<ContactCellViewModel> {
         label.text = "PH: Title"
         return label
     }()
+    
+    private let actionButton: RoundedButton = {
+        let button = RoundedButton()
+        button.backgroundColor = .clear
+        button.setTitleColor(ColorManager.hWhite, for: .normal)
+        button.backgroundColor = ColorManager.hBlue
+        button.layer.borderColor = ColorManager.label.cgColor
+        return button
+    }()
 
     override func setupUI() {
         self.backgroundColor = .clear
         
         textContainer.add(usernameLable, nameLable)
-        containerView.add(profileImageView, textContainer)
+        containerView.add(profileImageView, textContainer, actionButton)
 
         let size = UIScreen.main.bounds
         
@@ -69,7 +78,7 @@ class ContactCell: BaseTableViewCell<ContactCellViewModel> {
             $0.centerY.equalTo(profileImageView.sl.centerY)
             $0.top.equalToSuperView().offset(size.height * 0.02)
             $0.leading.equalTo(profileImageView.sl.trailing).offset(size.height * 0.01)
-            $0.trailing.equalToSuperView().offset(size.height * 0.01)
+            $0.trailing.equalTo(actionButton.sl.leading).offset(size.height * 0.01)
             $0.bottom.equalToSuperView().offset(size.height * 0.01)
         }
         
@@ -85,11 +94,24 @@ class ContactCell: BaseTableViewCell<ContactCellViewModel> {
             $0.trailing.equalToSuperView()
         }
         
+        actionButton.makeLayout {
+            $0.centerY.equalToSuperView()
+            $0.trailing.equalToSuperView().offset(size.width * 0.05)
+            $0.height.equalTo(size.height * 0.1 * 0.33)
+            $0.width.equalTo(size.width * 0.25)
+        }
+        
     }
 
     override func setupBinding() {
+        
+        //
+        // MARK: apearance
+        //
         viewModel.usernameDriver.drive(usernameLable.rx.text).disposed(by: disposeBag)
         viewModel.nameDriver.drive(nameLable.rx.text).disposed(by: disposeBag)
+        viewModel.actionButtonTextDriver.drive(actionButton.rx.title()).disposed(by: disposeBag)
+        
         viewModel.profileImageUrlDriver
             .drive(onNext: { [weak self] (url) in
                 let placeHolder = UIImage.init(named: "add_profile_image")
@@ -107,6 +129,19 @@ class ContactCell: BaseTableViewCell<ContactCellViewModel> {
                 ])
             })
             .disposed(by: disposeBag)
+        
+        viewModel.actionButtonStateDriver.drive(onNext: { [weak self] (actionState) in
+            
+            self?.actionButton.isHidden = actionState.model.isHidden
+            self?.actionButton.setTitle(actionState.model.title, for: .normal)
+            self?.actionButton.backgroundColor = actionState.model.backgroundColor
+            }).disposed(by: disposeBag)
+        
+        //
+        // MARK: action
+        //
+        actionButton.rx.tap.bind(to: viewModel.actionButtonCommand).disposed(by: disposeBag)
+
     }
 
 }
