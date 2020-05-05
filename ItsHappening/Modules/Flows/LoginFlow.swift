@@ -73,10 +73,6 @@ class LoginFlow: BaseFlow {
     }
     
     override func finishFlow(viewModel: BaseViewModel, router: BaseRouter) {
-//        AuthManager.sharedInstance.doLogin()
-        //NotificationCenter.default.post(name: .authLoginLogoutSuccessful, object: nil)
-        // AuthManager.sharedInstance.doLogin()
-        router.navigationService.closePresentedService()
         super.finishFlow(viewModel: viewModel, router: router)
     }
     
